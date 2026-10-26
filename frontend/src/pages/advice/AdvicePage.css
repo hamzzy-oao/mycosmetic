@@ -1,0 +1,252 @@
+/* "이거 사도 돼?" (no-ai-features 설계 F). 색은 index.css :root 토큰만 쓴다 */
+.advice-page {
+	box-sizing: border-box;
+	color: var(--ink);
+	font-family: 'Malgun Gothic', 'Segoe UI', sans-serif;
+}
+
+.advice-page * {
+	box-sizing: border-box;
+}
+
+.advice-mobile {
+	padding: 16px;
+}
+
+.advice-desktop {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 32px 24px;
+}
+
+.advice-head {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px 16px;
+}
+
+.advice-head h1 {
+	margin: 8px 0;
+	color: var(--rose);
+}
+
+.advice-links {
+	display: flex;
+	gap: 16px;
+}
+
+.advice-links a,
+.advice-related a {
+	display: inline-flex;
+	align-items: center;
+	min-height: 44px;
+	color: var(--rose-strong);
+}
+
+.advice-page a:focus-visible,
+.advice-page button:focus-visible,
+.advice-page textarea:focus-visible,
+.advice-page input:focus-visible {
+	outline: 3px solid var(--rose-deep);
+	outline-offset: 2px;
+}
+
+.advice-columns {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	gap: 32px;
+	align-items: start;
+}
+
+.advice-tabs {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 4px;
+	margin: 12px 0;
+	padding: 4px;
+	background: var(--blush);
+	border-radius: 999px;
+}
+
+.advice-tabs button {
+	min-height: 44px;
+	font-size: 15px;
+	border: none;
+	border-radius: 999px;
+	background: transparent;
+	color: var(--rose-deep);
+	cursor: pointer;
+}
+
+.advice-tabs button.is-active {
+	background: var(--rose-strong);
+	color: #fff;
+	font-weight: 700;
+}
+
+.advice-panel-body {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	min-width: 0;
+}
+
+.advice-label {
+	font-weight: 700;
+	color: var(--rose-deep);
+}
+
+.advice-panel-body textarea {
+	width: 100%;
+	min-height: 140px;
+	padding: 10px 12px;
+	font: inherit;
+	font-size: 16px;
+	border: 1px solid var(--petal);
+	border-radius: 12px;
+	background: #fff;
+	color: var(--ink);
+	resize: vertical;
+}
+
+.advice-empty,
+.advice-waiting {
+	margin: 16px 0;
+	padding: 16px;
+	background: var(--cream);
+	border: 1px dashed var(--petal);
+	border-radius: 16px;
+}
+
+.advice-result {
+	margin: 16px 0;
+	padding: 16px 18px;
+	background: var(--cream);
+	border: 1px solid var(--petal);
+	border-top: 4px solid var(--rose-strong);
+	border-radius: 16px;
+	overflow-wrap: anywhere;
+}
+
+.advice-desktop .advice-result,
+.advice-desktop .advice-empty,
+.advice-desktop .advice-waiting {
+	margin-top: 12px;
+}
+
+.advice-result-title {
+	margin: 0 0 4px;
+	font-size: 15px;
+	color: var(--rose-deep);
+}
+
+.advice-product {
+	margin: 0 0 8px;
+	font-weight: 700;
+}
+
+.advice-badge {
+	display: inline-block;
+	margin: 4px 0 8px;
+	padding: 8px 16px;
+	border-radius: 999px;
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.advice-badge.is-good {
+	background: var(--mint);
+	color: var(--ink);
+}
+
+.advice-badge.is-caution {
+	background: var(--warn-bg);
+	color: var(--warn-ink);
+}
+
+.advice-badge.is-avoid {
+	background: var(--rose-strong);
+	color: #fff;
+}
+
+.advice-badge.is-unknown {
+	background: var(--info-bg);
+	color: var(--info-ink);
+}
+
+.advice-reasons {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin: 12px 0;
+	padding: 0;
+	list-style: none;
+}
+
+.advice-reason {
+	padding: 10px 12px;
+	background: #fff;
+	border: 1px solid var(--petal);
+	border-left: 4px solid var(--petal);
+	border-radius: 12px;
+}
+
+.advice-reason.is-warning {
+	border-left-color: var(--rose-strong);
+}
+
+.advice-reason.is-caution {
+	border-left-color: var(--warn-ink);
+}
+
+.advice-reason.is-positive {
+	border-left-color: var(--rose-deep);
+}
+
+.advice-reason.is-info {
+	border-left-color: var(--info-ink);
+}
+
+.advice-level {
+	font-size: 13px;
+	font-weight: 700;
+	color: var(--rose-deep);
+}
+
+.advice-reason-message {
+	margin: 2px 0 6px;
+}
+
+.advice-chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.advice-chips li {
+	padding: 2px 8px;
+	border-radius: 999px;
+	background: var(--blush);
+	color: var(--rose-deep);
+	font-size: 13px;
+}
+
+.advice-related {
+	margin: 4px 0 0;
+	padding-left: 18px;
+}
+
+.advice-related-verdict {
+	font-size: 13px;
+}
+
+.advice-note {
+	margin: 12px 0 0;
+	font-size: 13px;
+	color: var(--ink);
+}

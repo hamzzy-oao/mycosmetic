@@ -1,0 +1,55 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@mediapipe/tasks-vision": "1.1.1",
+    "@tesseract.js-data/eng": "1.0.0",
+    "@tesseract.js-data/kor": "1.0.0",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "14.3.1",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "1.12.2",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-router-dom": "6.30.1",
+    "react-scripts": "5.0.1",
+    "tesseract.js": "6.0.1"
+  },
+  "scripts": {
+    "prestart": "node scripts/copy-mediapipe.js && node scripts/copy-tesseract.js",
+    "start": "react-scripts start",
+    "prebuild": "node scripts/copy-mediapipe.js && node scripts/copy-tesseract.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "proxy": "http://localhost:8080",
+  "jest": {
+    "testMatch": [
+      "**/src/**/*.test.js"
+    ],
+    "moduleNameMapper": {
+      "^axios$": "axios/dist/node/axios.cjs"
+    }
+  }
+}

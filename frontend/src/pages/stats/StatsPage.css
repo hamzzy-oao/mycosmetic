@@ -1,0 +1,266 @@
+/* 화장대 통계 (no-ai-features 설계 D). 색은 index.css :root 토큰만 쓴다. 막대는 CSS로만 그린다 */
+.stats-page {
+	box-sizing: border-box;
+	color: var(--ink);
+	font-family: 'Malgun Gothic', 'Segoe UI', sans-serif;
+}
+
+.stats-page * {
+	box-sizing: border-box;
+}
+
+.stats-mobile {
+	padding: 16px;
+}
+
+.stats-desktop {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 32px 24px;
+}
+
+.stats-head {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px 16px;
+}
+
+.stats-head h1 {
+	margin: 8px 0;
+	color: var(--rose);
+}
+
+.stats-links {
+	display: flex;
+	gap: 16px;
+}
+
+.stats-page a {
+	color: var(--rose-strong);
+}
+
+.stats-links a,
+.stats-empty a {
+	display: inline-flex;
+	align-items: center;
+	min-height: 44px;
+}
+
+.stats-page a:focus-visible,
+.stats-page button:focus-visible {
+	outline: 3px solid var(--rose-deep);
+	outline-offset: 2px;
+}
+
+.stats-cards {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 12px;
+	margin: 12px 0 20px;
+}
+
+.stats-desktop .stats-cards {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 16px;
+}
+
+.stats-card {
+	padding: 14px 16px;
+	background: var(--cream);
+	border: 1px solid var(--petal);
+	border-radius: 16px;
+}
+
+.stats-card dt {
+	font-size: 13px;
+}
+
+.stats-card dd {
+	margin: 4px 0 0;
+	font-size: 26px;
+	font-weight: 700;
+	color: var(--rose-strong);
+}
+
+.stats-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 16px;
+}
+
+.stats-desktop .stats-grid {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 20px;
+}
+
+.stats-bars,
+.stats-expiry {
+	padding: 12px 16px;
+	background: #fff;
+	border: 1px solid var(--petal);
+	border-radius: 16px;
+}
+
+.stats-bars h2,
+.stats-expiry h2 {
+	margin: 4px 0 10px;
+	font-size: 17px;
+	color: var(--rose-deep);
+}
+
+.stats-bars ul,
+.stats-expiry ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.stats-bar-row {
+	display: grid;
+	grid-template-columns: 5.5em minmax(0, 1fr) 3.5em;
+	align-items: center;
+	gap: 8px;
+	padding: 6px 0;
+}
+
+.stats-bar-track {
+	height: 14px;
+	background: var(--blush);
+	border-radius: 999px;
+	overflow: hidden;
+}
+
+.stats-bar-fill {
+	display: block;
+	height: 100%;
+	background: var(--rose);
+	border-radius: 999px;
+}
+
+.stats-bar-fill.is-MAKEUP,
+.stats-bar-fill.is-NEUTRAL {
+	background: var(--cabinet);
+}
+
+.stats-bar-fill.is-BAD {
+	background: var(--rose-deep);
+}
+
+.stats-bar-fill.is-UNRATED {
+	background: var(--petal);
+}
+
+.stats-bar-value {
+	text-align: right;
+	font-weight: 700;
+}
+
+.stats-count {
+	font-size: 13px;
+	color: var(--rose-strong);
+}
+
+.stats-expiry li {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 4px 8px;
+	padding: 8px 0;
+	border-bottom: 1px solid var(--blush);
+	overflow-wrap: anywhere;
+}
+
+.stats-expiry li:last-child {
+	border-bottom: none;
+}
+
+.stats-expiry li a {
+	display: inline-flex;
+	align-items: center;
+	min-height: 44px;
+}
+
+.stats-expiry-meta {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 13px;
+}
+
+/* 성분 분석(v-8) */
+.stats-insights {
+	margin-top: 16px;
+	padding: 12px 16px;
+	background: white;
+	border: 1px solid var(--petal);
+	border-radius: 16px;
+	scroll-margin-top: 16px;
+}
+.stats-insights h2 {
+	margin: 4px 0 10px;
+	font-size: 17px;
+	color: var(--rose-deep);
+}
+.stats-insights h3 {
+	margin: 16px 0 8px;
+	font-size: 1rem;
+}
+.stats-insights ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: 6px;
+}
+
+/* A single quiet frame for the summary, with readable data panels. */
+.vanity-app-content .stats-page .stats-cards { gap:0; margin:0 0 28px; padding:0; border:1px solid #edb7c8; border-radius:6px; background:#fff7fa; overflow:hidden; }
+.vanity-app-content .stats-page .stats-card { margin:0; padding:22px 24px; border:0; border-right:1px solid #edb7c8; border-radius:0; background:transparent; box-shadow:none; }
+.vanity-app-content .stats-page .stats-card:last-child { border-right:0; }
+.vanity-app-content .stats-page .stats-card dt { margin:0 0 12px; color:#80525f; font-size:12px; font-weight:500; }
+.vanity-app-content .stats-page .stats-card dd { margin:0; color:#bd173e; font:700 28px/1.3 var(--font-ui); letter-spacing:-1px; font-variant-numeric:tabular-nums; }
+.vanity-app-content .stats-page .stats-grid { gap:20px; align-items:stretch; }
+.vanity-app-content .stats-page :is(.stats-bars,.stats-expiry,.stats-insights) { min-width:0; padding:22px 24px; border:1px solid #edc5d1; border-radius:6px; background:#fff; box-shadow:none; }
+.vanity-app-content .stats-page :is(.stats-bars,.stats-expiry,.stats-insights) > h2 { display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin:0 0 18px; padding:0 0 14px; border-bottom:1px solid #f2d9e2; color:#a81438; font:700 14px/1.6 var(--font-ui); }
+.vanity-app-content .stats-page .stats-bar-row { grid-template-columns:5em minmax(0,1fr) 3em; gap:14px; padding:10px 0; font-size:12px; }
+.vanity-app-content .stats-page .stats-bar-track { height:8px; border:0; border-radius:99px; background:#fcebf1; }
+.vanity-app-content .stats-page .stats-bar-fill { border-radius:99px; background:#df315c; }
+.vanity-app-content .stats-page .stats-bar-fill:is(.is-MAKEUP,.is-NEUTRAL) { background:#dd91ab; }
+.vanity-app-content .stats-page .stats-bar-fill.is-BAD { background:#9b2949; }
+.vanity-app-content .stats-page .stats-bar-fill.is-UNRATED { background:#edc4d2; }
+.vanity-app-content .stats-page .stats-bar-value { color:#653845; font-size:12px; font-weight:600; font-variant-numeric:tabular-nums; }
+.vanity-app-content .stats-page .stats-count { color:#986073; font-size:11px; font-weight:400; }
+.vanity-app-content .stats-page .stats-expiry li { gap:8px 16px; padding:14px 0; border-bottom:1px solid #f4e4ea; font-size:12px; }
+.vanity-app-content .stats-page .stats-expiry li:last-child { border-bottom:0; }
+.vanity-app-content .stats-page .stats-expiry-meta { flex-wrap:wrap; color:#89616e; font-size:11px; }
+.vanity-app-content .stats-page .stats-insights { margin-top:20px; }
+.vanity-app-content .stats-page .stats-insights h3 { margin:20px 0 10px; color:#8f2443; font-size:13px; }
+.vanity-app-content .stats-page .stats-insights ul { grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 24px; }
+.vanity-app-content .stats-page .stats-insights li { display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:6px 12px; padding:10px 0; border-bottom:1px solid #f4e4ea; font-size:12px; }
+.vanity-app-content .stats-page .auth-hint { margin:12px 0 0; color:#89616e; font-size:12px; line-height:1.8; }
+@media(max-width:767px) {
+ .vanity-app-content .stats-page .stats-card { padding:18px; }
+ .vanity-app-content .stats-page .stats-card:nth-child(2) { border-right:0; }
+ .vanity-app-content .stats-page .stats-card:nth-child(-n+2) { border-bottom:1px solid #edb7c8; }
+ .vanity-app-content .stats-page .stats-card dd { font-size:25px; }
+ .vanity-app-content .stats-page :is(.stats-bars,.stats-expiry,.stats-insights) { padding:18px; }
+ .vanity-app-content .stats-page .stats-insights ul { grid-template-columns:1fr; }
+}
+
+/* Three sections; compact totals belong to the product overview. */
+.vanity-app-content .stats-page .stats-section + .stats-section { margin-top:32px; }
+.vanity-app-content .stats-page .stats-section > .stats-section-title { margin:0 0 14px; padding:0; color:#a81438; font:700 16px/1.5 var(--font-ui); }
+.vanity-app-content .stats-page .stats-section .stats-cards { grid-template-columns:repeat(3,minmax(0,1fr)); margin:0 0 16px; }
+.vanity-app-content .stats-page .stats-section .stats-card { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 20px; border-bottom:0; }
+.vanity-app-content .stats-page .stats-section .stats-card dt { margin:0; font-size:12px; }
+.vanity-app-content .stats-page .stats-section .stats-card dd { font:700 23px/1.3 var(--font-ui); }
+.vanity-app-content .stats-page .stats-section .stats-card:not(:last-child) { border-right:1px solid #edb7c8; }
+.vanity-app-content .stats-page .stats-section .stats-insights { margin-top:0; }
+@media(max-width:767px) {
+ .vanity-app-content .stats-page .stats-section .stats-card { flex-direction:column; align-items:flex-start; gap:6px; padding:12px; }
+ .vanity-app-content .stats-page .stats-section .stats-card dt { font-size:11px; }
+ .vanity-app-content .stats-page .stats-section .stats-card dd { font-size:21px; }
+}

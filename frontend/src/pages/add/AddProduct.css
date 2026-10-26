@@ -1,0 +1,148 @@
+/* 제품 추가 방법 탭(제품 찾기/사진 AI/상세페이지 붙여넣기). 조언 화면 탭과 같은 모양 */
+.add-tabs {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 4px;
+	margin: 0 0 12px;
+	padding: 4px;
+	background: var(--blush);
+	border-radius: 999px;
+}
+
+.add-tabs button {
+	min-height: 44px;
+	font-size: 14px;
+	border: none;
+	border-radius: 999px;
+	background: transparent;
+	color: var(--rose-deep);
+	cursor: pointer;
+}
+
+.add-tabs button.is-active {
+	background: var(--rose-strong);
+	color: #fff;
+	font-weight: 700;
+}
+
+.add-tabs button:disabled {
+	cursor: default;
+	opacity: 0.6;
+}
+
+/* 붙여넣기 확인 화면은 좌우 전체를 쓰므로 탭 너비를 왼쪽 단계와 맞춘다 */
+.add-tabs-confirm {
+	max-width: 480px;
+}
+/* Fill the segmented control evenly, including when photo entry is hidden. */
+.add-tabs {
+ grid-template-columns: none;
+ grid-auto-flow: column;
+ grid-auto-columns: minmax(0, 1fr);
+ align-items: stretch;
+ box-sizing: border-box;
+}
+.add-tabs button { width: 100%; box-sizing: border-box; display: flex; align-items: center; justify-content: center; }
+
+/* 빈 링크와 비활성 버튼도 밝은 입력 상태로 구분한다. */
+.confirm-link-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+.confirm-link-search {
+	display: grid;
+	gap: 8px;
+	margin-bottom: 16px;
+}
+.confirm-link-sites {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+.confirm-link-sites > * {
+	flex: 1 1 140px;
+	min-height: 44px;
+}
+/* 새 탭으로 여는 링크라 <a>지만 옆 버튼과 같은 알약 모양으로 맞춘다 */
+.vanity-app-content .confirm-site-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	padding: 9px 17px;
+	border: 1px solid var(--petal);
+	border-radius: 999px;
+	background: white;
+	color: var(--rose-deep);
+	font: 600 13px/1.5 var(--font-ui);
+	text-decoration: none;
+}
+.vanity-app-content .confirm-site-link:hover {
+	background: var(--cream);
+	border-color: var(--rose);
+}
+.confirm-site-link:focus-visible {
+	outline: 3px solid var(--rose-deep);
+	outline-offset: 2px;
+}
+.vanity-app-content .confirm-link-row input {
+	flex: 1 1 240px;
+	min-width: 0;
+	color-scheme: light;
+	background-color: #fff;
+	color: #582c3a;
+}
+.vanity-app-content .confirm-link-row input::placeholder {
+	color: #8a737c;
+	opacity: 1;
+}
+.vanity-app-content .confirm-link-row button:disabled {
+	background-color: #fff2f6;
+	color: #8a737c;
+	border-color: #ead7de;
+	opacity: 1;
+}
+
+/* 제품 찾기 결과: 이름과 담기 버튼 한 줄, 폰에서는 줄바꿈 */
+.add-search {
+	display: grid;
+	gap: 8px;
+}
+.add-search-results {
+	list-style: none;
+	margin: 12px 0;
+	padding: 0;
+	display: grid;
+	gap: 8px;
+}
+.add-search-results li {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	padding: 10px 12px;
+	border: 1px solid var(--petal);
+	border-radius: 12px;
+	background: var(--cream);
+}
+.add-search-results li span {
+	flex: 1 1 180px;
+	min-width: 0;
+	overflow-wrap: anywhere;
+}
+
+/* 옵션(호수·구성품) 고르기 */
+.confirm-sections {
+	display: grid;
+	gap: 8px;
+	margin: 0 0 16px;
+	padding: 12px;
+	border: 1px solid var(--petal);
+	border-radius: 12px;
+}
+.confirm-sections select {
+	width: 100%;
+	min-height: 44px;
+}

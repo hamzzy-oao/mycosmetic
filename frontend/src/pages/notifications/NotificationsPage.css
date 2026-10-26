@@ -1,0 +1,113 @@
+/* 알림 (설계 2026-10-24 C). 색은 index.css :root 토큰만 쓴다 */
+.notify-page {
+	box-sizing: border-box;
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 16px;
+	color: var(--ink);
+	font-family: 'Malgun Gothic', 'Segoe UI', sans-serif;
+}
+
+.notify-page * {
+	box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+	.notify-page {
+		padding: 32px 24px;
+	}
+}
+
+.notify-card {
+	margin: 0 0 16px;
+	padding: 16px;
+	border: 1px solid var(--petal);
+	border-radius: 16px;
+	background: var(--cream);
+}
+
+.notify-card h2 {
+	margin: 0 0 8px;
+	color: var(--rose-deep);
+	font-size: 18px;
+}
+
+.notify-count {
+	color: var(--rose-strong);
+	font-size: 14px;
+}
+
+.notify-hint {
+	margin: 8px 0;
+	color: var(--hint);
+	font-size: 14px;
+}
+
+.notify-error {
+	color: var(--error);
+}
+
+.notify-list {
+	display: grid;
+	gap: 10px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.notify-item {
+	padding: 12px 14px;
+	border-left: 4px solid var(--info-ink);
+	border-radius: 8px;
+	background: var(--info-bg);
+}
+
+.notify-item.is-WARNING {
+	border-left-color: var(--rose-strong);
+	background: var(--blush);
+}
+
+.notify-item.is-CAUTION {
+	border-left-color: var(--warn-ink);
+	background: var(--warn-bg);
+}
+
+.notify-item p {
+	margin: 4px 0;
+}
+
+.notify-level {
+	display: block;
+	font-size: 12px;
+	font-weight: 700;
+}
+
+.notify-page a {
+	display: inline-flex;
+	align-items: center;
+	min-height: 44px;
+	color: var(--rose-strong);
+}
+
+.notify-page button {
+	min-height: 44px;
+	padding: 0 16px;
+	border: 1px solid var(--rose-strong);
+	border-radius: 999px;
+	background: var(--cream);
+	color: var(--rose-strong);
+	font: inherit;
+	cursor: pointer;
+}
+
+.notify-page .notify-primary {
+	background: var(--rose-strong);
+	color: var(--cream);
+	font-weight: 700;
+}
+
+.notify-page a:focus-visible,
+.notify-page button:focus-visible {
+	outline: 3px solid var(--rose-deep);
+	outline-offset: 2px;
+}

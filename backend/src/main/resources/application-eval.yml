@@ -1,0 +1,5 @@
+# 추출 정확도 평가 실행기(ExtractionEvalRunner) 전용. 웹 서버를 띄우지 않고 평가만 하고 끝난다
+spring:
+  main.web-application-type: none
+# 평가 실행기가 끝나고 종료되도록 @Scheduled 작업을 켜지 않는다
+app.scheduling.enabled: false

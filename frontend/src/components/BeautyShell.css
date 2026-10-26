@@ -1,0 +1,305 @@
+@font-face { font-family: 'Vanity Fraunces'; src: url('../assets/fonts/fraunces-600.ttf') format('truetype'); font-style: normal; font-weight: 600; font-display: swap; }
+/* The home page's beauty-club palette, scoped to the inner screens. */
+.vanity-app-shell {
+	--rose: #e9194b;
+	--rose-strong: #cf123f;
+	--rose-deep: #a81035;
+	--blush: #fbd0db;
+	--petal: #f8b4cc;
+	--cream: #fff8fa;
+	--peach: #ffe9f0;
+	--mint: #fff2f6;
+	--cabinet: #f3afc4;
+	--ink: #582c3a;
+	--warn-bg: #fff4dc;
+	--warn-ink: #785214;
+	--info-bg: #fff0f5;
+	--info-ink: #8e2344;
+	min-height: 100vh;
+	background: #fff;
+	color: var(--ink);
+	font: 14px/1.65 var(--font-ui);
+}
+.vanity-app-shell *, .vanity-app-shell *::before, .vanity-app-shell *::after { box-sizing: border-box; }
+.vanity-app-shell a { color: var(--rose-deep); text-underline-offset: 4px; }
+.vanity-app-shell :is(a, button, input, select, textarea, summary):focus-visible { outline: 3px solid var(--rose-deep); outline-offset: 4px; }
+.vanity-app-skip { position: fixed; top: 8px; left: 16px; z-index: 20; padding: 12px 20px; background: white; border: 1px solid var(--rose); transform: translateY(-160%); }
+.vanity-app-skip:focus { transform: translateY(0); }
+.vanity-app-header { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 20px; padding: 18px 40px; min-height: 103px; border-bottom: 1px solid var(--petal); }
+.vanity-app-home { font: 700 10px Georgia, serif; letter-spacing: 1.5px; text-decoration: none; width: fit-content; padding: 12px 0; }
+.vanity-app-logo { display: block; line-height: 0; }
+.vanity-app-logo img { width: 170px; height: 62px; object-fit: contain; }
+.vanity-app-account { display: flex; align-items: center; justify-content: flex-end; gap: 0; }
+.vanity-app-account a { min-height: 44px; display: flex; align-items: center; padding: 0 20px; font: 700 12px Georgia, serif; text-decoration: none; }
+.vanity-app-account a + a { border-left: 1px solid var(--rose); }
+.vanity-app-badge { display: inline-flex; align-items: center; justify-content: center; min-width: 18px; height: 18px; margin-left: 5px; padding: 0 5px; border-radius: 999px; background: var(--rose-strong); color: var(--cream); font: 700 10px 'Malgun Gothic', 'Segoe UI', sans-serif; }
+.vanity-app-account button { display: flex; align-items: center; min-height: 44px; padding: 0 20px; border: 0; border-left: 1px solid var(--rose); border-radius: 0; background: transparent; color: var(--rose-deep); font: 700 12px Georgia, serif; cursor: pointer; }
+.vanity-app-nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0 34px; min-height: 57px; padding: 5px 24px; border-bottom: 1px solid var(--rose); }
+.vanity-app-nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 5px 0; border-bottom: 2px solid transparent; font: 700 12px Georgia, serif; letter-spacing: .4px; text-decoration: none; }
+.vanity-app-nav a[aria-current='page'] { color: var(--rose); border-color: var(--rose); }
+.vanity-app-nav a:hover, .vanity-app-account a:hover { color: var(--rose); }
+.vanity-app-banner { position: relative; text-align: center; padding: 30px 24px 37px; background: var(--blush); border-bottom: 1px solid var(--rose); }
+.vanity-app-banner::after { content: ''; position: absolute; z-index: 1; left: 0; right: 0; bottom: -15px; height: 38px; background: var(--blush); mask-image: var(--beauty-scallop); mask-size: 600px 88px; mask-repeat: repeat-x; mask-position: top left; pointer-events: none; }
+.vanity-app-eyebrow { margin: 0 0 8px; font: 700 9px/1.6 Georgia, serif; letter-spacing: 2.1px; color: var(--rose-deep); }
+.vanity-app-display { margin: 0; font: 600 clamp(30px, 3.2vw, 46px)/1.25 'Vanity Fraunces', Georgia, serif; letter-spacing: -1px; color: var(--rose-deep); font-optical-sizing: none; }
+.vanity-app-description { margin: 13px 0 0; font-size: 12px; color: var(--rose-deep); }
+.vanity-app-content { width: min(1180px, calc(100% - 80px)); min-height: 400px; margin: 0 auto; padding: 55px 0 64px; outline: none; }
+.vanity-app-content > :is(.shelf-desktop, .shelf-mobile, .add-desktop, .add-mobile, .product-desktop, .product-mobile, .vanity-routine, .compare-page, .stats-page, .diary-page, .notify-page, .share-page, .trial-page) { width: 100%; max-width: none; margin: 0; padding: 0; font-family: inherit; color: var(--ink); }
+.vanity-app-content .vanity-home-link { display: none; }
+.vanity-app-content h1 { color: var(--rose-deep); font-size: 25px; line-height: 1.4; letter-spacing: -.9px; margin: 0 0 24px; }
+.vanity-app-content h2 { font-size: 18px; line-height: 1.5; color: var(--rose-deep); letter-spacing: -.5px; }
+.vanity-app-content h3 { color: var(--rose-deep); font-size: 15px; }
+.vanity-app-content :is(p, li, dd) { overflow-wrap: anywhere; }
+.vanity-app-content :is(.shelf-desktop-head, .add-head, .product-head, .vanity-routine-head, .compare-head, .stats-head) { padding-bottom: 19px; margin-bottom: 24px; border-bottom: 1px solid var(--petal); gap: 12px 24px; flex-wrap: wrap; }
+.vanity-app-content :is(.shelf-desktop-head, .add-head, .product-head, .vanity-routine-head, .compare-head, .stats-head) h1 { margin: 0; }
+.vanity-app-content :is(.shelf-links, .product-head-links, .vanity-routine-links, .compare-links, .stats-links) { flex-wrap: wrap; gap: 8px 18px; margin: 0; }
+.vanity-app-content :is(.shelf-links, .product-head-links, .vanity-routine-links, .compare-links, .stats-links) a { font-size: 12px; font-weight: 600; min-height: 44px; display: inline-flex; align-items: center; }
+/* Controls share the pill/outlined treatment without changing their behavior. */
+.vanity-app-content button { min-height: 44px; padding: 9px 17px; border: 1px solid var(--petal); border-radius: 999px; background: white; color: var(--rose-deep); font: 600 13px/1.5 var(--font-ui); cursor: pointer; transition: background .15s, border-color .15s; }
+.vanity-app-content button:hover:not(:disabled) { background: var(--cream); border-color: var(--rose); }
+.vanity-app-content button:disabled { opacity: .5; cursor: not-allowed; }
+.vanity-app-content :is(.auth-primary, .shelf-primary, .shelf-search-submit, .vanity-routine-primary) { border: 1px solid var(--rose-strong); border-radius: 999px; background: var(--rose-strong); color: white; min-height: 46px; padding: 12px 23px; font-size: 14px; font-weight: 700; text-decoration: none; }
+.vanity-app-content :is(.auth-primary, .shelf-primary, .shelf-search-submit, .vanity-routine-primary):hover:not(:disabled) { background: var(--rose-deep); color: white; }
+.vanity-app-content :is(.skin-chip.is-selected, .shelf-quick button.is-selected, .vanity-routine-chip.is-selected, .compare-tabs button.is-active) { background: var(--rose-strong); border-color: var(--rose-strong); color: white; }
+.vanity-app-content :is(.skin-chip.is-selected, .shelf-quick button.is-selected, .vanity-routine-chip.is-selected, .compare-tabs button.is-active):hover { background: var(--rose-deep); color: white; }
+.vanity-app-content :is(input:not([type='checkbox']):not([type='radio']):not([type='range']):not([type='file']), textarea, select) { min-width: 0; max-width: 100%; min-height: 46px; padding: 11px 13px; border: 1px solid var(--petal); border-radius: 9px; background: white; color: var(--ink); font: 14px/1.55 var(--font-ui); }
+.vanity-app-content input::placeholder, .vanity-app-content textarea::placeholder { color: #986575; }
+.vanity-app-content input:is([type='checkbox'], [type='radio'], [type='range']) { accent-color: var(--rose-strong); }
+.vanity-app-content label { color: var(--rose-deep); font-size: 13px; font-weight: 600; }
+.vanity-app-content input[type='file'] { max-width: 100%; color: var(--rose-deep); font-size: 12px; }
+.vanity-app-content input::file-selector-button { min-height: 44px; padding: 8px 18px; margin: 8px 12px 8px 0; border: 1px solid var(--rose); border-radius: 99px; color: var(--rose-deep); background: var(--cream); cursor: pointer; }
+.vanity-app-content :is(.auth-hint, .confirm-raw, .shelf-memo, .shelf-opening, .vanity-routine-meta) { color: #865365; font-size: 12px; line-height: 1.8; }
+.vanity-app-content :is(.auth-error, .auth-notice, .confirm-warning, .vanity-routine-warning) { border-radius: 8px; padding: 12px 15px; font-size: 13px; line-height: 1.8; }
+.vanity-app-content .auth-error { color: var(--rose-deep); background: #fff0f4; border-left: 3px solid var(--rose); }
+.vanity-app-content .auth-notice { color: #336046; background: #f1f7f2; border-left: 3px solid #668e73; }
+.vanity-app-content :is(.me-danger, .vanity-routine-delete) { color: var(--rose-deep); border-color: var(--rose); }
+/* Forms feel like stationery, with a single frame rather than stacked shadows. */
+.vanity-app-content .auth-page { background: transparent; min-height: 0; padding: 0; }
+.vanity-app-content :is(.auth-card, .auth-column) { width: 100%; max-width: 480px; margin: 0 auto; padding: 32px 36px; border: 1px solid var(--rose); border-radius: 3px; box-shadow: 5px 5px 0 var(--blush); background: white; }
+.vanity-app-content :is(.auth-card, .auth-column) > h1 { border-bottom: 1px solid var(--petal); padding-bottom: 20px; margin-bottom: 25px; }
+.vanity-app-content .auth-form { gap: 9px; }
+.vanity-app-content .auth-form label:not(:first-child) { margin-top: 9px; }
+.vanity-app-content .auth-form .auth-primary { margin-top: 16px; }
+.vanity-app-content .auth-switch { font-size: 12px; padding-top: 14px; border-top: 1px solid var(--petal); margin-top: 25px; }
+.vanity-app-content .auth-kakao { background: #fee500; color: #191919; border: 1px solid #e6d000; border-radius: 99px; min-height: 46px; font-size: 13px; font-weight: 600; }
+.vanity-app-content .me-info { gap: 15px; margin: 0 0 26px; font-size: 13px; }
+.vanity-app-content .me-info dt { color: var(--rose-deep); font-weight: 700; }
+.vanity-app-content .me-actions { flex-wrap: wrap; gap: 10px; border-top: 1px solid var(--petal); padding-top: 22px; }
+/* Collections, data tables, product/photo workspaces. */
+.vanity-app-content :is(.shelf-search, .add-right, .confirm-photo) { background: var(--cream); border: 1px solid var(--petal); border-radius: 8px; padding: 22px; }
+.vanity-app-content .shelf-search { margin: 0 0 16px; padding: 16px; gap: 8px; }
+.vanity-app-content .shelf-search-row { align-items: stretch; gap: 8px; }
+.vanity-app-content .shelf-search-row input { height: 44px; min-height: 44px; padding: 10px 12px; }
+.vanity-app-content .shelf-search-row button { min-height: 44px; padding: 10px 20px; line-height: 22px; white-space: nowrap; }
+.vanity-app-content .shelf-controls { gap: 8px 20px; flex-wrap: wrap; align-items: center; margin: 0 0 12px; padding: 0; }
+.vanity-app-content .shelf-controls label { display: inline-flex; align-items: center; gap: 8px; }
+.vanity-app-content .shelf-controls select { height: 32px; min-height: 32px; padding: 4px 8px; border-radius: 6px; font-size: 12px; line-height: 20px; }
+.vanity-app-content .shelf-controls label { font-size: 12px; }
+.vanity-app-content .shelf-controls input[type='checkbox'] { width: 18px; height: 18px; }
+.vanity-app-content .shelf-table { font-size: 13px; }
+.vanity-app-content .shelf-table thead { background: var(--cream); color: var(--rose-deep); border-top: 1px solid var(--rose); }
+.vanity-app-content .shelf-table :is(th, td) { padding: 12px; border-bottom: 1px solid var(--petal); }
+.vanity-app-content .shelf-table thead th { font-size: 12px; font-weight: 700; }
+.vanity-app-content .shelf-table tbody tr:hover { background: #fffafb; }
+.shelf-search-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; margin-bottom: 20px; }
+.vanity-app-content .shelf-search-grid .shelf-search { min-width: 0; margin: 0; }
+.shelf-search-grid > :only-child { grid-column: 1 / -1; }
+.shelf-table-scroll { width: 100%; overflow-x: auto; }
+.vanity-app-content .shelf-table { table-layout: fixed; min-width: 1040px; }
+.shelf-col-verdict { width: 110px; }
+.shelf-col-period { width: 110px; }
+.shelf-col-opening { width: 165px; }
+.shelf-col-memo { width: 100px; }
+.shelf-col-date { width: 105px; }
+.shelf-col-actions { width: 160px; }
+.vanity-app-content .shelf-table :is(th, td) { vertical-align: middle; overflow-wrap: anywhere; }
+.vanity-app-content .shelf-table tbody th > a { display: inline-block; line-height: 1.6; word-break: keep-all; overflow-wrap: anywhere; }
+.vanity-app-content .shelf-table select { width: 100%; height: 32px; min-height: 32px; padding: 4px 8px; border-radius: 6px; font-size: 12px; line-height: 20px; }
+.vanity-app-content .shelf-table .shelf-opening { margin: 0; }
+.vanity-app-content .shelf-table .shelf-opening-none { align-items: center; flex-direction: row; flex-wrap: nowrap; gap: 8px; white-space: nowrap; }
+.vanity-app-content .shelf-table .shelf-open-today { flex-shrink: 0; min-height: 32px; padding: 4px 10px; }
+.vanity-app-content .shelf-table button { min-height: 36px; padding: 6px 12px; font-size: 12px; white-space: nowrap; }
+.vanity-app-content .shelf-table .shelf-row-actions button + button { margin-left: 6px; }
+@media (max-width: 1000px) {
+ .shelf-search-grid { grid-template-columns: minmax(0, 1fr); }
+}
+.vanity-app-content .shelf-expanded td { background: var(--cream); }
+.vanity-app-content .shelf-row-actions { white-space: normal; }
+.vanity-app-content .shelf-row-actions button { padding: 8px 12px; font-size: 12px; }
+.vanity-app-content .shelf-card { border: 1px solid var(--petal); border-radius: 8px; padding: 20px; box-shadow: none; }
+.vanity-app-content .shelf-card-head { line-height: 1.7; }
+.vanity-app-content .shelf-cards { gap: 17px; }
+.vanity-app-content .shelf-verdict { border: 1px solid var(--petal); }
+.vanity-app-content .shelf-verdict-GOOD { background: #f1f7f2; color: #336046; border-color: #b2cbbb; }
+.vanity-app-content .shelf-verdict-BAD { background: #ffe9ef; color: var(--rose-deep); }
+.vanity-app-content :is(.shelf-empty, .compare-empty, .stats-empty, .vanity-routine-empty-steps) { padding: 30px 22px; background: var(--cream); border: 1px dashed var(--petal); border-radius: 8px; line-height: 1.9; }
+.vanity-app-content .add-columns { gap: 32px; }
+.vanity-app-content .add-right { min-height: 340px; border-style: dashed; }
+.vanity-app-content .add-step { gap: 13px; }
+.vanity-app-content .add-step h2 { margin-top: 0; }
+.vanity-app-content .confirm-photo { border-style: dashed; }
+.vanity-app-content .confirm-candidates { border-color: var(--petal); padding: 14px; }
+.vanity-app-content .confirm-item { padding: 14px 0; border-bottom-color: var(--petal); }
+.vanity-app-content .confirm-savebar { background: white; border-top: 2px solid var(--rose); box-shadow: none; }
+.vanity-app-content :is(.confirm-item-fuzzy, .confirm-warning) { background: var(--warn-bg); color: var(--warn-ink); }
+.vanity-app-content .product-versions { border-color: var(--petal); background: var(--cream); }
+.vanity-app-content .product-list li { padding-block: 10px; border-bottom: 1px solid var(--petal); }
+/* Routine, compare and insights keep their original information layouts. */
+.vanity-app-content :is(.vanity-routine-card, .vanity-routine-step, .vanity-routine-add, .compare-side, .compare-panel, .compare-column, .stats-card, .stats-bars, .stats-expiry) { border-color: var(--petal); border-radius: 8px; background: white; box-shadow: none; }
+.vanity-app-content .vanity-routine-today { padding: 22px; border: 1px solid var(--petal); border-radius: 8px; background: var(--cream); }
+.vanity-app-content .vanity-routine-today > h2 { margin-top: 0; }
+.vanity-app-content .vanity-routine-card { padding: 18px 20px; }
+.vanity-app-content .vanity-routine-steps { gap: 13px; }
+.vanity-app-content .vanity-routine-step { padding: 18px; border: 1px solid var(--petal); }
+.vanity-app-content .vanity-routine-step-no { background: var(--blush); color: var(--rose-deep); border: 1px solid var(--petal); }
+.vanity-app-content .vanity-routine-basics { padding: 20px; background: var(--cream); border: 1px solid var(--petal); border-radius: 8px; }
+.vanity-app-content .vanity-routine-chip.is-day { min-width: 44px; padding: 8px 12px; }
+.vanity-app-content .vanity-routine-add { padding: 18px; }
+.vanity-app-content .vanity-routine-actions { border-top-color: var(--petal); }
+.vanity-app-content .vanity-routine-warning.is-WARNING { background: #fff0f4; border-color: var(--rose); }
+.vanity-app-content .vanity-routine-warning.is-CAUTION { background: var(--warn-bg); border-color: #dfc991; }
+.vanity-app-content .compare-pickers { padding: 20px; border: 1px solid var(--petal); background: var(--cream); border-radius: 8px; margin-block: 0 24px; }
+.vanity-app-content .compare-side { padding: 23px; border-top: 3px solid var(--rose); }
+.vanity-app-content .compare-columns { gap: 18px; }
+.vanity-app-content .compare-column { padding: 22px; }
+.vanity-app-content .compare-column.is-common { background: var(--cream); }
+.vanity-app-content .compare-count { font-size: 13px; }
+.vanity-app-content .stats-card { padding: 22px; border-top: 3px solid var(--rose); }
+.vanity-app-content .stats-card dt { color: var(--rose-deep); font-size: 12px; }
+.vanity-app-content .stats-card dd { font: 600 38px/1.2 'Vanity Fraunces', Georgia, serif; margin-top: 12px; }
+.vanity-app-content :is(.stats-bars, .stats-expiry) { padding: 22px; }
+.vanity-app-content .stats-bars h2, .vanity-app-content .stats-expiry h2 { margin-top: 0; }
+.vanity-app-content .stats-bar-track { background: #ffe9f0; }
+.vanity-app-content .stats-bar-fill { background: var(--rose-strong); }
+.vanity-app-content .stats-bar-fill.is-MAKEUP, .vanity-app-content .stats-bar-fill.is-NEUTRAL { background: #eb8aa7; }
+.vanity-app-content .stats-bar-fill.is-BAD { background: var(--rose-deep); }
+.vanity-app-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px 30px; padding: 26px max(40px, calc((100% - 1180px) / 2)); background: var(--rose); color: white; }
+.vanity-app-footer img { display: block; width: 108px; height: 42px; object-fit: contain; filter: brightness(0) invert(1); }
+.vanity-app-footer span { font: 700 9px Georgia, serif; letter-spacing: 2px; }
+.vanity-app-footer a { color: white; font-size: 12px; text-decoration: none; min-height: 44px; display: flex; align-items: center; }
+@media(max-width:1000px) {
+	.vanity-app-nav { gap: 0 24px; }
+	.vanity-app-content { width: calc(100% - 48px); }
+	.vanity-app-content .shelf-table :is(th, td) { padding: 13px 8px; }
+	.vanity-app-content .shelf-row-actions button { margin: 3px 2px; }
+}
+@media(max-width:767px) {
+	.vanity-app-header { min-height: 82px; padding: 12px 18px; gap: 8px; }
+	.vanity-app-logo img { width: 125px; height: 46px; }
+	.vanity-app-home { font-size: 0; }
+	.vanity-app-home::after { content: 'HOME'; font: 700 10px Georgia, serif; letter-spacing: .7px; }
+	.vanity-app-account a { font-size: 9px; padding: 0 7px; white-space: nowrap; }
+	.vanity-app-account button { font-size: 9px; padding: 0 7px; white-space: nowrap; }
+	.vanity-app-nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; padding: 5px 16px; }
+	.vanity-app-nav a { justify-content: center; min-height: 38px; font-size: 10px; }
+	.vanity-app-banner { padding: 25px 20px 29px; }
+	.vanity-app-eyebrow { font-size: 8px; letter-spacing: 1.2px; margin-bottom: 9px; }
+	.vanity-app-display { font-size: 32px; letter-spacing: -1px; }
+	.vanity-app-description { font-size: 11px; line-height: 1.8; max-width: 290px; margin: 12px auto 0; }
+	.vanity-app-content { width: calc(100% - 36px); padding: 42px 0 44px; }
+	.vanity-app-content h1 { font-size: 23px; }
+	.vanity-app-content h2 { font-size: 17px; }
+	.vanity-app-content :is(.auth-card, .auth-column) { padding: 25px 22px; box-shadow: 3px 3px 0 var(--blush); }
+	.vanity-app-content :is(.shelf-links, .product-head-links, .vanity-routine-links, .compare-links, .stats-links) { gap: 5px 14px; }
+	.vanity-app-content :is(.shelf-links, .product-head-links, .vanity-routine-links, .compare-links, .stats-links) a { font-size: 11px; }
+	.vanity-app-content :is(.add-right, .confirm-photo, .vanity-routine-today, .vanity-routine-basics, .compare-pickers) { padding: 17px; }
+	.vanity-app-content :is(input:not([type='checkbox']):not([type='radio']):not([type='range']):not([type='file']), textarea, select) { font-size: 16px; }
+	.vanity-app-content .shelf-card { padding: 17px; }
+	.vanity-app-content .shelf-card-head { flex-wrap: wrap; }
+	.vanity-app-content .shelf-search-row { gap: 8px; }
+	.vanity-app-content .shelf-controls { gap: 12px; }
+	.vanity-app-content .me-row { flex-wrap: wrap; }
+	.vanity-app-content .me-row .auth-kakao { width: 100%; }
+	.vanity-app-content .me-actions { flex-wrap: wrap; }
+	.vanity-app-content .vanity-routine-step { padding: 15px; }
+	.vanity-app-content .vanity-routine-step-actions { flex-wrap: wrap; }
+	.vanity-app-content .vanity-routine-step-actions button { padding: 8px 12px; }
+	.vanity-app-content .compare-side { padding: 15px; }
+	.vanity-app-content .compare-tabs { flex-wrap: wrap; }
+	.vanity-app-content .compare-tabs button { flex: 1 1 30%; font-size: 12px; padding: 9px; }
+	.vanity-app-content :is(.stats-card, .stats-bars, .stats-expiry) { padding: 17px; }
+	.vanity-app-content .stats-card dd { font-size: 32px; }
+	.vanity-app-footer { justify-content: center; padding: 22px 20px; text-align: center; gap: 10px 22px; }
+	.vanity-app-footer span { flex-basis: 100%; font-size: 8px; }
+}
+@media(prefers-reduced-motion:reduce) { .vanity-app-content button { transition: none; } }
+
+/* Page titles are editorial; operational text stays easy to scan. */
+.vanity-app-shell { font-family: var(--font-ui); }
+.vanity-app-content :is(h1, h2) { font-family: var(--font-editorial); font-weight: 700; letter-spacing: -.4px; }
+.vanity-app-content :is(h3, p, label, button, input, select, textarea, table, dt, dd) { font-family: var(--font-ui); }
+.vanity-app-description { font-family: var(--font-editorial); font-weight: 700; }
+/* Profile actions share one right-hand alignment. */
+.vanity-app-content .me-info { align-items: center; row-gap: 20px; }
+.vanity-app-content .me-nickname { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; min-width: 0; }
+.vanity-app-content .me-nickname > button { flex-shrink: 0; margin: 0; }
+.vanity-app-content .me-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: nowrap; gap: 16px; min-height: 48px; margin-top: 14px; }
+.vanity-app-content .me-row > button { flex-shrink: 0; margin: 0; }
+.vanity-app-content .me-row .auth-kakao { width: auto; margin: 0; }
+.vanity-app-content .me-actions { justify-content: flex-end; align-items: center; gap: 10px; }
+@media(max-width:767px) {
+ .vanity-app-content .me-nickname { gap: 8px; }
+ .vanity-app-content .me-row { gap: 8px; }
+ .vanity-app-content .me-row .auth-kakao { width: auto; }
+ .vanity-app-content .me-actions { justify-content: flex-end; }
+}
+
+.vanity-app-header .vanity-app-logo img { width: 240px; height: 90px; object-fit: contain; }
+@media(max-width:767px) { .vanity-app-header .vanity-app-logo img { width: 155px; height: 60px; } }
+.vanity-app-content .shelf-desktop-head { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 24px; }
+.vanity-app-content .shelf-links { display: flex; align-items: center; gap: 16px; margin: 0; }
+.vanity-app-content .shelf-links .shelf-add-product { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 20px; border: 1px solid var(--rose); border-radius: 99px; background: var(--rose); color: white; text-decoration: none; }
+@media(max-width:767px) { .vanity-app-content .shelf-desktop-head { flex-wrap: wrap; }.vanity-app-content .shelf-links { flex: 1; justify-content: flex-end; flex-wrap: wrap; gap: 8px 12px; }.vanity-app-content .shelf-links .shelf-add-product { padding: 0 14px; white-space: nowrap; } }
+.vanity-section-tabs { display:flex; gap:28px; border-bottom:1px solid #f6b8c9; margin:0 0 30px; }
+.vanity-section-tabs a { display:flex; align-items:center; justify-content:center; min-height:48px; padding:0 6px; border-bottom:3px solid transparent; color:#956375; font:600 15px/1.5 var(--font-ui); text-decoration:none; }
+.vanity-section-tabs a[aria-current='page'] { color:#e9194b; border-bottom-color:#e9194b; }
+.vanity-section-tabs a:hover { color:#e9194b; }
+.vanity-section-tabs a:focus-visible { outline:2px solid #e9194b; outline-offset:3px; }
+.vanity-app-content :is(.compare-links,.stats-links,.advice-links) { display:none; }
+.skin-chips[hidden], .skin-personal-color[hidden] { display:none; }
+@media(max-width:767px) { .vanity-section-tabs { gap:0; }.vanity-section-tabs a { flex:1; font-size:12px; padding:0 4px; text-align:center; } }
+/* One workspace system for both MY VANITY and PERSONAL tabs. */
+.vanity-tabbed-content > :is(.shelf-desktop,.shelf-mobile,.compare-page,.stats-page,.advice-page,.auth-page) { box-sizing:border-box; width:100%; max-width:none; padding:0; margin:0; background:transparent; }
+.vanity-tabbed-content > .auth-page > .auth-card,
+.vanity-tabbed-content > .auth-column { box-sizing:border-box; width:100%; max-width:none; padding:0; margin:0; border:0; box-shadow:none; border-radius:0; background:transparent; }
+.vanity-tabbed-content :is(.shelf-desktop-head,.compare-head,.stats-head,.advice-head) { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:0; margin:0 0 24px; border:0; min-height:44px; }
+.vanity-tabbed-content :is(.shelf-desktop-head,.compare-head,.stats-head,.advice-head) h1,
+.vanity-tabbed-content :is(.auth-card,.auth-column) > h1 { font:700 23px/1.5 var(--font-editorial); margin:0 0 24px; padding:0; border:0; }
+.vanity-tabbed-content .shelf-desktop-head h1 { margin:0; }
+.vanity-tabbed-content .skin-chips { max-width:680px; }
+.vanity-tabbed-content .skin-personal-color { max-width:680px; }
+.vanity-tabbed-content .auth-primary { width:auto; min-width:140px; margin-top:24px; }
+.vanity-tabbed-content .auth-switch { display:none; }
+.vanity-app-content .vanity-routine-head:has(#routine-title.visually-hidden) { margin:0; padding:0; min-height:0; border:0; }
+@media(max-width:767px) {
+ .vanity-tabbed-content :is(.shelf-desktop-head,.compare-head,.stats-head,.advice-head) { margin-bottom:20px; }
+ .vanity-tabbed-content :is(.auth-card,.auth-column) > h1 { font-size:21px; }
+}
+.vanity-tabbed-content .shelf-desktop-head { justify-content: flex-end; }
+.vanity-tabbed-content .shelf-desktop-head #shelf-title.visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+.vanity-section-tabs { align-items:center; }
+.vanity-section-tabs a.vanity-tab-add { margin-left:auto; min-height:40px; padding:0 20px; border:1px solid #e9194b; border-radius:99px; background:#e9194b; color:white; font-size:12px; white-space:nowrap; }
+.vanity-section-tabs a.vanity-tab-add:hover { background:#ad174d; border-color:#ad174d; }
+.vanity-tabbed-content .shelf-desktop-head { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); margin:-1px; padding:0; }
+@media(max-width:767px) { .vanity-section-tabs a.vanity-tab-add { flex:0 0 auto; min-height:36px; padding:0 12px; margin-left:10px; font-size:11px; } }
+/* Tab labels are the visible page headings; do not reserve another title row. */
+.vanity-tabbed-content .compare-head,
+.vanity-tabbed-content .stats-head { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; min-height:0; }
+.vanity-app-content.vanity-tabbed-content { padding-top:26px; }
+.vanity-tabbed-content .vanity-section-tabs { min-height:52px; align-items:stretch; gap:28px; margin-bottom:24px; }
+.vanity-tabbed-content .vanity-section-tabs > a:not(.vanity-tab-add) { box-sizing:border-box; min-height:52px; padding:0 8px; }
+.vanity-tabbed-content .vanity-section-tabs > a.vanity-tab-add { align-self:center; box-sizing:border-box; min-height:38px; margin-top:0; margin-bottom:6px; }
+@media(max-width:767px) {
+ .vanity-app-content.vanity-tabbed-content { padding-top:18px; }
+ .vanity-tabbed-content .vanity-section-tabs { gap:8px; margin-bottom:20px; }
+ .vanity-tabbed-content .vanity-section-tabs > a:not(.vanity-tab-add) { min-height:48px; padding:0 4px; }
+}
+/* PERSONAL shares the same single-heading tab layout as MY VANITY. */
+.vanity-tabbed-content :is(.auth-card,.auth-column) > h1 {
+ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+.vanity-tabbed-content .advice-head {
+ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; min-height:0;
+}
+.vanity-tabbed-content :is(.auth-card,.auth-column) > .auth-hint:first-of-type { margin-top:0; }
+.vanity-tabbed-content .skin-personal-color { margin-top:0; }

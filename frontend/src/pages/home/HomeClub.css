@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Caprasimo&display=swap');
+
+.vanity-page{--rose:#e9194b;--rose-strong:#cf123f;--rose-deep:#a81035;--blush:#fbd0db;--petal:#f8b4cc;--cream:#fff;--ink:#a81035;--mint:#fff}
+.vanity-page .vanity-header{height:108px;padding:14px 38px;border-bottom:1px solid var(--petal);grid-template-columns:1fr auto 1fr}
+.vanity-page .vanity-wordmark{height:72px;width:auto;max-width:100%;object-fit:contain}
+.vanity-page .vanity-tools{gap:0;align-items:center}
+.vanity-page .vanity-header-link{font:700 13px Georgia,serif;color:var(--rose-deep);padding:15px 26px;min-height:44px}
+.vanity-page .vanity-header-link+ .vanity-header-link{border-left:1px solid var(--rose)}
+.vanity-page button.vanity-header-link{background:none;border-top:0;border-right:0;border-bottom:0;cursor:pointer}
+.vanity-page .vanity-nav{display:flex;justify-content:center;gap:52px;min-height:62px;align-items:center;padding:8px 20px;border-bottom:2px solid var(--rose);font:700 14px Georgia,serif;color:var(--rose-deep)}
+.vanity-page .vanity-nav a{min-height:44px;display:flex;align-items:center;padding:6px 0}
+.vanity-club-hero{position:relative;isolation:isolate;background:var(--blush);color:var(--rose);min-height:730px;display:grid;place-items:center;padding:72px 24px 78px;overflow:hidden}
+.vanity-club-frame{position:absolute;inset:38px 38px 0;border:1px solid var(--rose);border-bottom:0;z-index:-2;pointer-events:none}
+.vanity-club-copy{position:relative;text-align:center;max-width:1100px;width:100%;margin:auto}
+.vanity-club-eyebrow{font:700 18px Georgia,serif;letter-spacing:5px;margin:0 0 34px}
+.vanity-page .vanity-club-title{font-family:'Caprasimo',Georgia,serif;font-weight:400;font-size:clamp(54px,8.7vw,126px);line-height:1.05;letter-spacing:-4px;margin:0 0 32px;paint-order:stroke fill;-webkit-text-stroke:11px white;text-shadow:0 3px 0 #fff}
+.vanity-club-title span{display:block}
+.vanity-club-title span:first-child{transform:rotate(-2deg)}
+.vanity-club-description{color:var(--rose-deep);font-size:17px;font-weight:600;line-height:1.85;margin:0 auto 30px}
+.vanity-club-actions{display:flex;flex-direction:column;align-items:center;gap:14px}
+.vanity-page .vanity-club-button{display:inline-flex;align-items:center;justify-content:center;gap:26px;min-height:56px;min-width:330px;padding:13px 25px;border-radius:99px;background:var(--rose-strong);color:white;font-size:16px;font-weight:700;border:1px solid var(--rose-strong);transition:background .2s,transform .2s}
+.vanity-page .vanity-club-button:hover{background:var(--rose-deep);transform:translateY(-2px)}
+.vanity-club-button span{font-size:24px;line-height:1}
+.vanity-page .vanity-club-button-outline{background:transparent;color:var(--rose-deep);border-color:var(--rose);min-height:50px;font-size:15px}
+.vanity-page .vanity-club-button-outline:hover{background:white}
+.vanity-club-divider{color:white;position:relative;background:var(--rose);padding:18px 28px 25px;min-height:61px}
+.vanity-club-divider>div{max-width:1300px;margin:auto;display:flex;justify-content:space-around;gap:35px;white-space:nowrap;overflow:hidden;font:700 10px Georgia,serif;letter-spacing:3px}
+.vanity-club-divider:after{content:'';position:absolute;left:0;right:0;bottom:-16px;height:40px;background:var(--rose);mask-image:var(--club-scallop);mask-repeat:repeat-x;mask-size:264px 88px;mask-position:top left;z-index:1}
+.vanity-club-services{padding:73px 36px 68px;background:white;scroll-margin-top:20px}
+.vanity-club-services-heading{position:relative;max-width:1320px;margin:0 auto 36px;min-height:90px;display:flex;align-items:center;justify-content:center;padding:0 165px}
+.vanity-page .vanity-club-services h2{margin:0;color:var(--rose);font:500 clamp(34px,5.4vw,78px)/1.2 'Vanity Fraunces',Georgia,serif;letter-spacing:-4px;text-align:center;white-space:nowrap}
+.vanity-club-stamp{position:absolute;right:5px;top:0;display:flex;flex-direction:column;align-items:center;justify-content:center;border:3px double var(--rose);border-radius:50%;width:160px;height:90px;transform:rotate(8deg);font:500 18px 'Vanity Fraunces',Georgia,serif;color:var(--rose)}
+.vanity-club-stamp small{font:700 7px/1.5 Georgia,serif;letter-spacing:.5px;text-align:center;margin-top:6px}
+.vanity-club-service-grid{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));max-width:1320px;margin:auto;border:1px solid var(--rose);padding:25px 0;background-color:var(--blush);background-image:var(--club-stripes);background-size:200px 200px}
+.vanity-club-service{padding:0 24px;text-align:center;color:var(--rose-deep);min-width:0;scroll-margin-top:25px}
+.vanity-club-service+.vanity-club-service{border-left:1px solid var(--rose)}
+.vanity-club-number{display:block;font:500 27px 'Vanity Fraunces',Georgia,serif;margin:0 auto 13px;width:105px;border-bottom:1px solid var(--rose);padding-bottom:13px;color:var(--rose)}
+.vanity-page .vanity-club-service h3{font:700 21px Georgia,serif;margin:0;color:var(--rose-deep)}
+.vanity-page .vanity-club-service-icon{display:block;width:118px;height:118px;object-fit:contain;margin:16px auto}
+.vanity-club-service>p{font-size:14px;line-height:1.9;margin:0}
+.vanity-club-service-link,.vanity-club-coming summary{display:inline-flex;align-items:center;justify-content:center;gap:12px;font-size:12px;font-weight:700;min-height:44px;margin-top:13px;border-bottom:1px solid var(--rose);cursor:pointer}
+.vanity-club-coming{font-size:13px;line-height:1.8}
+.vanity-club-coming summary{display:list-item;list-style-position:inside;width:max-content;margin-inline:auto}
+.vanity-club-coming p{margin:16px auto;font-size:13px;max-width:280px}
+.vanity-club-coming a{text-decoration:underline}
+.vanity-club-closing{position:relative;background:var(--rose);color:white;padding:46px 34px 38px}
+.vanity-club-closing:before{content:'';position:absolute;left:0;right:0;top:-15px;height:40px;background:var(--rose);mask-image:var(--club-scallop);mask-repeat:repeat-x;mask-size:264px 88px;mask-position:top left;transform:rotate(180deg)}
+.vanity-club-closing-frame{display:grid;grid-template-columns:1fr 2fr 1fr;align-items:center;gap:24px;border:4px double white;max-width:1320px;margin:auto;padding:32px 35px;text-align:center;border-radius:10px}
+.vanity-page .vanity-club-closing h2{font:500 clamp(42px,5.5vw,78px)/.95 'Vanity Fraunces',Georgia,serif;letter-spacing:-3px;margin:0 0 25px}
+.vanity-page .vanity-club-button-white{background:white;color:var(--rose-strong);border-color:white}
+.vanity-page .vanity-club-button-white:hover{background:var(--blush);color:var(--rose-deep)}
+.vanity-club-side{font:500 16px/1.45 Georgia,serif;letter-spacing:1.2px;border-top:1px solid white;border-bottom:1px solid white;padding:25px 10px;margin:0}
+.vanity-page .vanity-footer{background:white;color:var(--rose-deep);border-top:1px solid var(--petal);padding:20px 0}
+.vanity-page .vanity-footer .vanity-wordmark{height:40px}
+.vanity-page .vanity-footer p{font-size:11px}
+@media(max-width:1000px){.vanity-club-hero{min-height:650px}.vanity-page .vanity-club-title{font-size:8.4vw;letter-spacing:-3px}.vanity-club-services-heading{padding:0 125px}.vanity-club-stamp{width:125px;height:77px;font-size:14px}.vanity-page .vanity-club-services h2{font-size:4.7vw;letter-spacing:-2px}.vanity-club-service{padding:0 15px}.vanity-club-service>p{font-size:12px}.vanity-club-closing-frame{padding:30px 20px;grid-template-columns:1fr 3fr 1fr}.vanity-club-side{font-size:12px}.vanity-page .vanity-club-closing .vanity-club-button{min-width:280px}.vanity-club-description{font-size:15px}}
+@media(max-width:767px){.vanity-page .vanity-header{height:82px;padding:10px 13px;grid-template-columns:1fr auto 1fr}.vanity-page .vanity-wordmark{height:46px}.vanity-page .vanity-header-link{font-size:9px;padding:14px 7px}.vanity-page .vanity-tool{width:36px;height:44px}.vanity-page .vanity-tools{margin-left:7px}.vanity-page .vanity-nav{gap:30px;min-height:52px;font-size:11px;padding:4px 10px}.vanity-club-hero{min-height:570px;padding:65px 20px 50px}.vanity-club-frame{inset:22px 15px 0}.vanity-club-eyebrow{font-size:12px;letter-spacing:3px;margin-bottom:38px}.vanity-page .vanity-club-title{font-size:10.7vw;letter-spacing:-2px;line-height:1.12;-webkit-text-stroke:5px white;margin-bottom:28px}.vanity-club-description{font-size:12px;line-height:1.9;margin-bottom:26px;letter-spacing:-.3px}.vanity-page .vanity-club-button{min-width:260px;min-height:50px;font-size:13px;padding:11px 20px;gap:20px}.vanity-page .vanity-club-button-outline{font-size:12px;min-height:46px}.vanity-club-divider{padding:16px 10px 20px;min-height:52px}.vanity-club-divider>div{font-size:8px;letter-spacing:2px;justify-content:center}.vanity-club-divider>div span:not(:first-child){display:none}.vanity-club-services{padding:52px 20px 48px}.vanity-club-services-heading{padding:0 0 32px;min-height:0;margin-bottom:25px;display:block}.vanity-page .vanity-club-services h2{font-size:30px;letter-spacing:-1.6px;white-space:normal}.vanity-club-stamp{position:static;width:110px;height:58px;font-size:12px;margin:20px auto -10px;transform:rotate(5deg)}.vanity-club-stamp small{font-size:6px;margin-top:3px}.vanity-club-service-grid{grid-template-columns:1fr;padding:0 22px}.vanity-club-service{padding:28px 0}.vanity-club-service+.vanity-club-service{border-left:0;border-top:1px solid var(--rose)}.vanity-club-number{font-size:23px;margin-bottom:12px;padding-bottom:10px}.vanity-page .vanity-club-service h3{font-size:20px}.vanity-page .vanity-club-service-icon{font-size:61px;margin:12px auto;line-height:1.2}.vanity-club-service>p{font-size:13px}.vanity-club-closing{padding:28px 15px}.vanity-club-closing-frame{grid-template-columns:1fr;padding:32px 10px;gap:0}.vanity-club-side{display:none}.vanity-page .vanity-club-closing h2{font-size:48px;letter-spacing:-2px;margin-bottom:24px}.vanity-page .vanity-club-closing .vanity-club-button{min-width:240px}.vanity-page .vanity-footer-inner{justify-content:center;text-align:center}.vanity-page .vanity-footer p{font-size:10px}.vanity-page .vanity-footer .vanity-wordmark{height:33px}}
+@media(prefers-reduced-motion:reduce){.vanity-club-button{transition:none!important}}
+@media(max-width:767px){.vanity-page .vanity-club-title{font-size:9.2vw;letter-spacing:-1.5px}.vanity-club-title span{white-space:nowrap}}
+.vanity-club-divider:after,.vanity-club-closing:before{mask-size:600px 88px}
+.vanity-club-hero{min-height:650px;place-items:start center;padding-top:48px;padding-bottom:55px}
+.vanity-club-copy{margin:0 auto}
+.vanity-club-eyebrow{margin-bottom:26px}
+@media(max-width:1000px){.vanity-club-hero{min-height:590px;padding-top:42px}}
+@media(max-width:767px){.vanity-club-hero{min-height:510px;padding-top:42px;padding-bottom:42px}.vanity-club-eyebrow{margin-bottom:28px}.vanity-club-divider:after,.vanity-club-closing:before{mask-size:480px 88px}}
+/* Approved artwork: keep the headline, supporting copy and actions in one compact group. */
+.vanity-club-hero{min-height:0;display:block;padding:42px 24px 40px}
+.vanity-club-copy{max-width:none;width:100%;margin:0 auto}
+.vanity-club-frame{z-index:0}
+.vanity-club-copy{z-index:1}
+.vanity-club-frame{inset:28px 2.9% 0}
+.vanity-page .vanity-club-title{width:min(76vw,1400px);margin:0 auto 18px;line-height:0;letter-spacing:normal;transform:none;-webkit-text-stroke:0;text-shadow:none}
+.vanity-club-title img{display:block;width:100%;height:auto}
+.vanity-club-description{font-size:clamp(14px,1.4vw,22px);line-height:1.75;margin:0 auto 26px;font-weight:500}
+.vanity-club-actions{gap:12px}
+.vanity-page .vanity-club-button{width:clamp(290px,32vw,560px);min-width:0;min-height:clamp(54px,5vw,78px);font-size:clamp(14px,1.35vw,21px);gap:22px}
+.vanity-page .vanity-club-button-outline{min-height:clamp(50px,4.5vw,70px);font-size:clamp(13px,1.25vw,19px)}
+@media(max-width:767px){.vanity-club-hero{min-height:0;padding:30px 15px 30px}.vanity-page .vanity-club-title{width:90%;margin-bottom:18px}.vanity-club-description{font-size:12px;line-height:1.8;margin-bottom:22px;letter-spacing:-.3px}.vanity-club-actions{gap:10px}.vanity-page .vanity-club-button{width:74%;min-width:250px;min-height:49px;font-size:13px}.vanity-page .vanity-club-button-outline{min-height:45px;font-size:12px}.vanity-club-frame{inset:18px 15px 0}}
+/* 흩뿌린 이펙트 대신 제목 아래에 보석함 하나를 둔다. 제목을 줄여 버튼까지 첫 화면에 들어오게 한다 */
+.vanity-club-object{position:relative;z-index:1;display:block;width:auto;height:clamp(220px,17.5vw,336px);margin:-8px auto 22px}
+@media(min-width:768px){.vanity-page .vanity-club-title{width:min(51vw,980px)}}
+@media(max-width:767px){.vanity-club-object{height:200px;margin:10px auto 18px}}
+/* Compact Club: approved split hero. */
+.vanity-club-hero { padding: 72px 6% 42px; overflow: visible; }
+.vanity-club-frame { inset: 20px 20px 0; border-radius: 22px 22px 0 0; }
+.vanity-club-layout { position: relative; z-index: 1; display: grid; grid-template-columns: 1.15fr 1fr; align-items: center; gap: 12px; max-width: 1320px; margin: auto; min-height: 470px; }
+.vanity-club-copy { max-width: 700px; }
+.vanity-page .vanity-club-title { width: 100%; margin: 0 auto 24px; }
+.vanity-club-description { font-size: 16px; line-height: 1.9; margin-bottom: 20px; }
+.vanity-club-actions { gap: 10px; }
+.vanity-page .vanity-club-button { width: 355px; max-width: 100%; min-height: 48px; font-size: 14px; padding: 10px 22px; }
+.vanity-page .vanity-club-button-outline { min-height: 44px; font-size: 13px; }
+.vanity-compact-art { display: block; width: 100%; height: auto; max-height: 510px; object-fit: contain; }
+.vanity-petite-bow { position: absolute; z-index: 2; width: 110px; height: 110px; object-fit: contain; left: 15px; top: 0; pointer-events: none; }
+.vanity-hero-wave { display: block; width: 100%; height: 75px; object-fit: fill; margin-top: -1px; }
+.vanity-club-services { padding-top: 26px; }
+.vanity-club-services-heading { padding: 0; min-height: 0; margin-bottom: 34px; }
+.vanity-page .vanity-club-services h2 { font-size: clamp(30px,4vw,58px); letter-spacing: -2px; }
+.vanity-club-stamp, .vanity-club-number { display: none; }
+.vanity-club-service-grid { background: white; border: 0; padding: 0; }
+.vanity-club-service + .vanity-club-service { border-color: #f6b8c9; }
+.vanity-page .vanity-club-service-icon { width: 65px; height: 65px; margin: 0 auto 12px; }
+.vanity-club-service { display: flex; flex-direction: column; align-items: center; }
+.vanity-club-service-icon { order: -1; }
+.vanity-club-service > p { margin-top: 12px; }
+@media(max-width:767px) {
+ .vanity-club-hero { padding: 58px 28px 16px; }
+ .vanity-club-layout { grid-template-columns: 1fr; min-height: 0; gap: 22px; }
+ .vanity-club-frame { inset: 16px 12px 0; }
+ .vanity-page .vanity-club-title { width: 100%; margin-bottom: 20px; }
+ .vanity-club-description { font-size: 12px; letter-spacing: -.4px; }
+ .vanity-compact-art { max-width: 300px; max-height: 280px; margin: 0 auto; }
+ .vanity-petite-bow { width: 65px; height: 65px; left: 5px; top: 3px; }
+ .vanity-hero-wave { height: 40px; }
+ .vanity-club-services { padding-top: 22px; }
+ .vanity-club-service-grid { padding: 0; }
+ .vanity-club-service + .vanity-club-service { border-top-color: #f6b8c9; }
+}
+.vanity-petite-heart { position: absolute; width: 30px; height: 30px; object-fit: contain; pointer-events: none; z-index: 2; }
+.vanity-petite-heart-one { top: 25%; right: 40%; transform: rotate(-16deg); }
+.vanity-petite-heart-two { top: 48%; right: 4%; transform: rotate(14deg); }
+.vanity-petite-heart-three { bottom: 5%; left: 3%; width: 22px; height: 22px; transform: rotate(-12deg); }
+@media(max-width:767px) { .vanity-petite-heart { width: 21px; height: 21px; }.vanity-petite-heart-one { right: 8%; top: 4%; }.vanity-petite-heart-two { top: 68%; }.vanity-petite-heart-three { bottom: 10%; } }
+.vanity-compact-art { max-height: 440px; }
+.vanity-club-layout { min-height: 440px; }
+.vanity-club-hero { padding-top: 52px; padding-bottom: 25px; }
+@media(max-width:767px) { .vanity-club-hero { padding-top: 58px; padding-bottom: 16px; }.vanity-club-layout { min-height: 0; }.vanity-compact-art { max-height: 280px; } }
+.vanity-club-layout, .vanity-club-copy { min-width: 0; }
+.vanity-page .vanity-club-button { box-sizing: border-box; }
+.vanity-petite-sparkle { position: absolute; width: 85px; height: 85px; object-fit: contain; pointer-events: none; z-index: 2; }
+.vanity-petite-sparkle-one { top: 30%; right: 33%; }
+.vanity-petite-sparkle-two { right: 2%; bottom: 8%; transform: rotate(15deg); }
+@media(max-width:767px) {
+ .vanity-page .vanity-club-button { width: 100%; min-width: 0; }
+ .vanity-page .vanity-club-closing .vanity-club-button { width: 100%; min-width: 0; }
+ .vanity-page .vanity-club-closing h2 { font-size: 42px; }
+ .vanity-petite-sparkle { width: 50px; height: 50px; }
+ .vanity-petite-sparkle-one { top: 66%; right: 4%; }
+ .vanity-petite-sparkle-two { bottom: 7%; left: 5%; right: auto; }
+}
+/* Keep the headline subordinate to the complete hero composition. */
+.vanity-page .vanity-club-title { width: 76%; max-width: 530px; margin: 0 auto 24px; }
+.vanity-club-description { margin-bottom: 22px; }
+.vanity-club-layout { column-gap: 40px; }
+@media(max-width:767px) {
+ .vanity-page .vanity-club-title { width: 86%; max-width: 320px; margin-bottom: 22px; }
+ .vanity-club-layout { gap: 22px; }
+}
+.vanity-page .vanity-club-title { width: 87%; max-width: 610px; }
+@media(max-width:767px) { .vanity-page .vanity-club-title { width: 93%; max-width: 350px; } }
+/* Closing invitation: compact type and balanced side notes. */
+.vanity-club-closing { padding: 34px 36px; }
+.vanity-club-closing-frame { box-sizing: border-box; grid-template-columns: 1fr 2.2fr 1fr; gap: 36px; padding: 34px 40px; border-width: 3px; border-radius: 12px; }
+.vanity-page .vanity-club-closing h2 { font-size: clamp(38px,4.2vw,60px); line-height: 1.08; letter-spacing: -1.8px; margin-bottom: 24px; }
+.vanity-club-side { font-size: 12px; line-height: 1.8; letter-spacing: 1.5px; max-width: 200px; width: 100%; justify-self: center; padding: 18px 0; border-color: #ffffff80; }
+.vanity-page .vanity-club-closing .vanity-club-button { width: 300px; max-width: 100%; min-height: 46px; font-size: 13px; }
+@media(max-width:767px) {
+ .vanity-club-closing { padding: 25px 18px; }
+ .vanity-club-closing-frame { grid-template-columns: 1fr; gap: 0; padding: 30px 20px; }
+ .vanity-page .vanity-club-closing h2 { font-size: 38px; line-height: 1.12; letter-spacing: -1px; margin-bottom: 22px; }
+ .vanity-page .vanity-club-closing .vanity-club-button { width: 100%; min-width: 0; }
+}
+
+.vanity-club-description { font-family: 'Gowun Batang', serif; font-weight: 700; }
+
+/* Editorial Korean copy pairs with clear Pretendard controls. */
+.vanity-page .vanity-club-description { font-family: var(--font-editorial); font-weight: 700; line-height: 1.9; }
+.vanity-page :is(.vanity-club-button, .vanity-club-service-link, .vanity-club-service > p, .vanity-footer p) { font-family: var(--font-ui); }
+
+.vanity-page .vanity-header .vanity-wordmark { height: 90px; width: 240px; object-fit: contain; }
+@media(max-width:767px) { .vanity-page .vanity-header .vanity-wordmark { width: 155px; height: 60px; } }
+
+/* 히어로 모션: 오프닝(한 세션 1회, data-intro="play")과 패럴랙스(--scroll, --tilt-x, --tilt-y는 useHeroMotion이 쓴다).
+   transform·translate·scale·opacity만 움직인다. 패럴랙스는 translate, 오프닝 등장은 scale·opacity라 장식의 rotate(transform)와 겹치지 않는다 */
+.vanity-club-hero {
+ --scroll: 0;
+ --tilt-x: 0;
+ --tilt-y: 0;
+ --shine: #ffffffd9;
+ --ease-pop: cubic-bezier(.34,1.56,.64,1);
+ --ease-out: cubic-bezier(.2,.8,.2,1);
+}
+.vanity-compact-stage { position: relative; min-width: 0; transform: perspective(900px) rotateY(calc(var(--tilt-x) * 7deg)) rotateX(calc(var(--tilt-y) * -5deg)); translate: 0 calc(var(--scroll) * .06px); transition: transform .5s var(--ease-out); }
+.vanity-depth-back { translate: calc(var(--tilt-x) * -8px) calc(var(--scroll) * -.1px + var(--tilt-y) * -8px); transition: translate .5s var(--ease-out); }
+.vanity-depth-mid { translate: calc(var(--tilt-x) * -16px) calc(var(--scroll) * -.22px + var(--tilt-y) * -16px); transition: translate .45s var(--ease-out); }
+.vanity-depth-front { translate: calc(var(--tilt-x) * -28px) calc(var(--scroll) * -.38px + var(--tilt-y) * -28px); transition: translate .4s var(--ease-out); }
+
+/* 오프닝 약 1.6초: 액자가 가운데에서 열리고 → 제목·버튼이 떠오르고 → 컴팩트가 튀어 오르고 → 거울에 빛이 스치고 → 장식이 톡톡 나타난다 */
+.vanity-club-hero[data-intro="play"] .vanity-club-frame { animation: vanity-frame-open .8s var(--ease-out) both; }
+.vanity-club-hero[data-intro="play"] .vanity-club-title { animation: vanity-rise .7s .25s var(--ease-out) both; }
+.vanity-club-hero[data-intro="play"] .vanity-club-description { animation: vanity-rise .7s .4s var(--ease-out) both; }
+.vanity-club-hero[data-intro="play"] .vanity-club-actions { animation: vanity-rise .7s .52s var(--ease-out) both; }
+.vanity-club-hero[data-intro="play"] .vanity-compact-media { animation: vanity-compact-rise .95s .15s var(--ease-pop) both; }
+.vanity-club-hero[data-intro="play"] .vanity-compact-stage::after {
+ content: ''; position: absolute; inset: 0; pointer-events: none;
+ background: linear-gradient(105deg, transparent 38%, var(--shine) 50%, transparent 62%) no-repeat;
+ background-size: 250% 100%;
+ mask: var(--compact-mask) center / contain no-repeat;
+ -webkit-mask: var(--compact-mask) center / contain no-repeat;
+ animation: vanity-compact-shine .8s 1s ease-in-out both;
+}
+.vanity-club-hero[data-intro="play"] :is(.vanity-petite-sparkle, .vanity-petite-heart, .vanity-petite-bow) { animation: vanity-decor-pop .55s var(--ease-pop) both; }
+.vanity-club-hero[data-intro="play"] .vanity-petite-bow { animation-delay: .7s; }
+.vanity-club-hero[data-intro="play"] .vanity-petite-sparkle-one { animation-delay: .85s; }
+.vanity-club-hero[data-intro="play"] .vanity-petite-heart-one { animation-delay: .95s; }
+.vanity-club-hero[data-intro="play"] .vanity-petite-sparkle-two { animation-delay: 1.05s; }
+.vanity-club-hero[data-intro="play"] .vanity-petite-heart-two { animation-delay: 1.12s; }
+.vanity-club-hero[data-intro="play"] .vanity-petite-heart-three { animation-delay: 1.2s; }
+
+@keyframes vanity-frame-open { from { clip-path: inset(0 50% 0 50%); opacity: 0; } to { clip-path: inset(0 0 0 0); opacity: 1; } }
+@keyframes vanity-rise { from { opacity: 0; translate: 0 24px; } to { opacity: 1; translate: 0 0; } }
+@keyframes vanity-compact-rise { from { opacity: 0; translate: 0 56px; scale: .8; rotate: -8deg; } to { opacity: 1; translate: 0 0; scale: 1; rotate: 0deg; } }
+@keyframes vanity-compact-shine { from { background-position: 130% 0; opacity: 1; } 85% { opacity: 1; } to { background-position: -30% 0; opacity: 0; } }
+@keyframes vanity-decor-pop { from { opacity: 0; scale: 0; } to { opacity: 1; scale: 1; } }
+
+/* MY VANITY 카드: 설명 글 대신 성분 스캔 장면 (HomeScan, data-scan="rest|wait|play").
+   병이 흔들리고 성분 칩이 두 줄로 정리된다. 마우스·키보드 재생은 유지하고 설명과 모션을 두 열로 배치한다 */
+.vanity-club-service-grid { grid-template-columns: minmax(0,1fr); max-width: 1120px; }
+.vanity-scan { --ease-pop: cubic-bezier(.34,1.56,.64,1); width: 100%; max-width: 460px; margin: 0 auto; text-align: left; }
+.vanity-scan-body { display: grid; grid-template-columns: auto minmax(0,1fr); gap: 14px; align-items: center; }
+.vanity-scan-bottle { position: relative; width: 34px; height: 58px; margin-top: 10px; border-radius: 8px 8px 12px 12px; background: var(--petal); border: 2px solid var(--rose); transform-origin: 50% 100%; }
+.vanity-scan-bottle::before { content: ''; position: absolute; top: -12px; left: 8px; width: 14px; height: 10px; border-radius: 3px 3px 0 0; background: var(--rose); }
+.vanity-scan-groups { display: grid; gap: 8px; min-width: 0; }
+.vanity-scan-group b { display: block; margin-bottom: 4px; font-size: 11px; letter-spacing: .3px; color: var(--rose-deep); }
+.vanity-scan-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.vanity-scan-chip { padding: 2px 8px; border: 1px solid var(--petal); border-radius: 99px; background: white; font-size: 11px; line-height: 1.6; white-space: nowrap; color: var(--rose-deep); }
+.vanity-scan-chip-caution { border-color: var(--rose); color: var(--rose-strong); }
+.vanity-scan[data-scan="wait"] .vanity-scan-chip { opacity: 0; }
+.vanity-scan[data-scan="play"] .vanity-scan-bottle { animation: vanity-scan-shake .55s ease-in-out both; }
+.vanity-scan[data-scan="play"] .vanity-scan-chip { animation: vanity-scan-fly .65s var(--ease-pop) both; animation-delay: calc(.35s + var(--i) * .13s); }
+@keyframes vanity-scan-shake { 25% { rotate: -9deg; } 60% { rotate: 6deg; } 100% { rotate: 0deg; } }
+@keyframes vanity-scan-fly { from { opacity: 0; translate: -60px 8px; scale: .4; } to { opacity: 1; translate: 0 0; scale: 1; } }
+
+/* 아침→밤 루틴 띠: 띠가 화면에 붙어 있는 동안 --ritual(0~1)에 따라 색 겹이 차례로 덮인다 (HomeRitual) */
+.vanity-ritual {
+ --ritual-day: #f5b3c4;
+ --ritual-night: #791737;
+ --ritual: 0;
+ --ritual-stage-height: 396px;
+ position: relative; background: var(--blush);
+}
+.vanity-ritual-stage { box-sizing: border-box; position: relative; height: var(--ritual-stage-height); overflow: hidden; display: grid; place-items: center; padding: 30px 24px; background: var(--blush); color: var(--rose-deep); transition: color .4s; }
+.vanity-ritual-layer { position: absolute; inset: 0; pointer-events: none; }
+.vanity-ritual-peach { background: var(--ritual-day); opacity: clamp(0, calc(var(--ritual) * 3), 1); }
+.vanity-ritual-rose { background: var(--rose); opacity: clamp(0, calc(var(--ritual) * 3 - 1), 1); }
+.vanity-ritual-night { background: var(--ritual-night); opacity: clamp(0, calc(var(--ritual) * 3 - 2), 1); }
+.vanity-ritual[data-phase="night"] .vanity-ritual-stage { color: white; }
+.vanity-ritual-inner { position: relative; display: grid; justify-items: center; gap: 12px; width: 100%; max-width: 1120px; text-align: center; }
+.vanity-ritual-icon { display: inline-flex; width: 44px; height: 44px; align-items: center; justify-content: center; border: 1px solid currentColor; border-radius: 50%; }
+.vanity-page .vanity-ritual h2 { margin: 0; font: 600 clamp(34px,4vw,48px)/1.12 'Vanity Fraunces', Georgia, serif; letter-spacing: -.8px; color: inherit; }
+.vanity-ritual-copy { margin: 0; font-family: var(--font-ui, sans-serif); font-weight: 400; font-size: 15px; }
+.vanity-ritual-steps { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 8px 0 0; padding: 0; list-style: none; }
+.vanity-ritual-step { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 6px 14px; border: 1px solid var(--petal); border-radius: 99px; background: white; color: var(--rose-deep); font: 600 13px var(--font-ui, sans-serif); transition: background .3s, color .3s, border-color .3s; }
+.vanity-ritual-check { width: 14px; height: 14px; border: 1.5px solid currentColor; border-radius: 50%; }
+.vanity-ritual-step.is-done { background: var(--rose-strong); border-color: var(--rose-strong); color: white; }
+.vanity-ritual-step.is-done .vanity-ritual-check { background: white; border-color: white; mask: none; box-shadow: inset 0 0 0 3px var(--rose-strong); }
+.vanity-ritual-progress { width: min(320px, 70vw); height: 3px; border-radius: 2px; background: white; overflow: hidden; }
+.vanity-ritual-progress span { display: block; width: 100%; height: 100%; background: var(--rose-deep); transform: scaleX(var(--ritual)); transform-origin: left; }
+.vanity-ritual[data-phase="night"] .vanity-ritual-progress span { background: var(--rose); }
+.vanity-ritual-link { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font: 700 13px var(--font-ui, sans-serif); color: inherit; border-bottom: 1px solid currentColor; }
+.vanity-ritual[data-motion="static"] { height: auto; }
+.vanity-ritual[data-motion="static"] .vanity-ritual-stage { position: relative; height: auto; padding: 64px 20px; }
+.vanity-ritual[data-motion="static"] .vanity-ritual-progress { display: none; }
+@media(max-width:767px) {
+ .vanity-ritual-stage { padding: 28px 18px; }
+ .vanity-ritual-inner { gap: 10px; }
+ .vanity-ritual-icon { width: 40px; height: 40px; }
+ .vanity-ritual-copy { font-size: 13px; }
+ .vanity-ritual-step { font-size: 12px; padding: 5px 11px; }
+ .vanity-scan { max-width: 300px; }
+}
+
+/* Existing motion, with a shared content width and clearer service / PERSONAL layouts. */
+.vanity-club-services { --label-paper: #fff0f5; --ticket-cut: 12px; padding: 48px 36px 52px; background: white; }
+.vanity-club-services-heading { max-width: 1120px; margin-bottom: 32px; justify-content: flex-start; gap: 28px; }
+.vanity-page .vanity-club-services h2 { flex-shrink: 0; font-size: clamp(36px,4vw,58px); font-weight: 600; font-style: italic; letter-spacing: -.8px; text-align: left; }
+.vanity-club-title-rule { flex: 1; height: 1px; background: var(--petal); }
+.vanity-club-service-grid .vanity-club-service { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: 64px; padding: 0; text-align: left; }
+.vanity-page .vanity-club-service h3 { font-family: 'Vanity Fraunces', Georgia, serif; font-size: 23px; font-weight: 600; letter-spacing: .3px; }
+.vanity-club-service-copy > p { max-width: 360px; margin: 14px 0 10px; color: var(--rose-deep); font: 400 16px/1.8 var(--font-ui); }
+.vanity-club-service-link { font-family: var(--font-ui); font-size: 14px; margin-top: 8px; }
+.vanity-club-service-preview { position: relative; min-width: 0; padding: 26px 28px 30px; border: 0; border-radius: 0; background: var(--rose); clip-path: polygon(var(--ticket-cut) 0, calc(100% - var(--ticket-cut)) 0, 100% var(--ticket-cut), 100% calc(100% - var(--ticket-cut)), calc(100% - var(--ticket-cut)) 100%, var(--ticket-cut) 100%, 0 calc(100% - var(--ticket-cut)), 0 var(--ticket-cut)); }
+.vanity-club-service-preview::before { content: ''; position: absolute; inset: 1px; background: var(--label-paper); clip-path: inherit; }
+.vanity-club-service-preview > * { position: relative; }
+.vanity-club-preview-label { display: block; margin-bottom: 24px; color: var(--rose-deep); font: 500 12px var(--font-ui); }
+.vanity-scan-body { gap: 22px; }
+.vanity-scan-bottle { width: 48px; height: 82px; }
+.vanity-scan-bottle::before { left: 13px; width: 18px; }
+.vanity-scan-groups { gap: 14px; }
+.vanity-scan-group b { font-size: 13px; margin-bottom: 7px; }
+.vanity-scan-chips { gap: 6px; }
+.vanity-scan-chip { padding: 4px 10px; font-size: 13px; }
+.vanity-club-closing { padding: 30px 36px; background: var(--rose); }
+.vanity-club-closing::before { top: -20px; height: 105px; background: var(--rose); mask-size: 900px 233px; }
+.vanity-club-closing-frame { position: relative; z-index: 1; max-width: 1120px; grid-template-columns: 1fr 3.2fr 1fr; gap: 28px; padding: 28px 32px; border-width: 1px; border-style: solid; }
+.vanity-club-personal-label { margin: 0 0 12px; font: 600 12px var(--font-ui); letter-spacing: 2px; }
+.vanity-page .vanity-club-closing h2 { margin: 0 0 14px; font-weight: 600; font-size: clamp(34px,3.5vw,48px); line-height: 1.12; letter-spacing: -.6px; }
+.vanity-club-personal-copy { margin: 0 0 20px; font: 400 14px/1.7 var(--font-ui); }
+.vanity-club-personal-actions { display: flex; justify-content: center; gap: 12px; }
+.vanity-page .vanity-club-closing .vanity-club-button { width: 200px; min-width: 0; min-height: 46px; gap: 16px; padding: 10px 18px; font-family: var(--font-ui); font-size: 14px; white-space: nowrap; }
+.vanity-page .vanity-club-closing .vanity-club-button-white { background: white; border-color: white; color: var(--rose); }
+.vanity-page .vanity-club-button-line { background: transparent; border-color: white; color: white; }
+.vanity-page .vanity-club-button-line:hover { background: white; color: var(--rose-strong); }
+.vanity-club-side { font-size: 12px; letter-spacing: 1px; padding: 18px 8px; }
+@media(max-width:1000px) {
+ .vanity-club-service-grid .vanity-club-service { gap: 32px; }
+ .vanity-club-service-preview { padding: 24px 20px; }
+ .vanity-scan-body { gap: 16px; }
+ .vanity-club-closing-frame { grid-template-columns: 1fr 4fr 1fr; gap: 16px; padding: 28px 20px; }
+}
+@media(max-width:767px) {
+ .vanity-club-services { padding: 36px 20px 40px; }
+ .vanity-club-services-heading { display: flex; padding: 0; margin-bottom: 26px; gap: 16px; }
+ .vanity-page .vanity-club-services h2 { font-size: 36px; line-height: 1.2; }
+ .vanity-club-service-grid .vanity-club-service { grid-template-columns: 1fr; gap: 24px; }
+ .vanity-club-service-copy > p { font-size: 14px; margin-top: 10px; }
+ .vanity-club-service-preview { padding: 20px 16px 24px; }
+ .vanity-club-preview-label { margin-bottom: 20px; }
+ .vanity-scan { max-width: none; }
+ .vanity-scan-bottle { width: 38px; height: 66px; }
+ .vanity-scan-bottle::before { left: 9px; width: 16px; }
+ .vanity-scan-chip { font-size: 12px; padding: 3px 7px; }
+ .vanity-scan-group b { font-size: 12px; }
+ .vanity-club-closing { padding: 26px 18px; }
+ .vanity-club-closing-frame { grid-template-columns: 1fr; padding: 26px 20px; }
+ .vanity-club-personal-actions { flex-direction: column; align-items: stretch; gap: 10px; }
+ .vanity-page .vanity-club-closing .vanity-club-button { width: 100%; }
+ .vanity-club-personal-copy { font-size: 13px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+ .vanity-scan *, .vanity-ritual * { animation: none !important; transition: none !important; }
+ .vanity-club-hero *, .vanity-club-hero *::after { animation: none !important; }
+ .vanity-compact-stage, .vanity-depth-back, .vanity-depth-mid, .vanity-depth-front { transform: none; translate: none; transition: none; }
+}

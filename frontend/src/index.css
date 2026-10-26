@@ -1,0 +1,1012 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap');
+
+:root {
+  --font-ui: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-editorial: 'Gowun Batang', serif;
+  /* My Vanity 색 토큰(vanity-ui 스킬). 내부 화면이 같이 쓴다. 메인 홈은 .vanity-page에서 따로 정한다 */
+  --rose: #e71749;
+  --rose-strong: #d0103c;
+  --rose-deep: #a92240;
+  --blush: #ffe2e0;
+  --petal: #facbd0;
+  --peach: #ffdc9b;
+  --cabinet: #f39583;
+  --cream: #fffdf4;
+  --ink: #463b34;
+  --mint: #e5eeea;
+  --warn-bg: #fff4d6;
+  --warn-ink: #7a4b00;
+  --info-bg: #eef3f8;
+  --info-ink: #2f4a63;
+  /* 입력칸 아래 안내 글씨(FieldMessage). 흰 바탕 대비 4.5:1 이상 */
+  --ok: #1a7f37;
+  --error: #c62828;
+  --notice: #8a6100;
+  --hint: #5f5f5f;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* 로그인·가입·내 정보 (설계 7장: 폰 한 열, PC 가운데 카드) */
+.auth-column {
+  box-sizing: border-box;
+  padding: 24px 16px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.auth-page {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 64px 16px;
+  background: #f6f4f2;
+}
+
+.auth-card {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 420px;
+  padding: 32px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.auth-column,
+.auth-card {
+  font-family: 'Malgun Gothic', 'Segoe UI', sans-serif;
+}
+
+.auth-form input {
+  box-sizing: border-box;
+  min-height: 44px;
+  font-size: 16px;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.auth-form label {
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.auth-form input:focus-visible,
+.me-nickname-form input:focus-visible,
+.auth-primary:focus-visible {
+  outline: 3px solid var(--rose-deep);
+  outline-offset: 2px;
+}
+
+/* 입력칸 아래 한 줄 안내 (components/FieldMessage.js) */
+.field-input-ok {
+  border-color: var(--ok) !important;
+}
+
+.field-input-error {
+  border-color: var(--error) !important;
+}
+
+.field-input-notice {
+  border-color: var(--notice) !important;
+}
+
+.field-message {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  min-height: 1.4em;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.field-message:empty {
+  min-height: 0;
+}
+
+.field-message-ok {
+  color: var(--ok);
+}
+
+.field-message-error {
+  color: var(--error);
+}
+
+.field-message-notice {
+  color: var(--notice);
+}
+
+.field-message-hint {
+  color: var(--hint);
+}
+
+.field-message-icon {
+  flex: none;
+}
+
+.auth-hint {
+  margin: 0;
+  font-size: 13px;
+  color: #666;
+}
+
+.auth-error {
+  margin: 4px 0;
+  color: #c62828;
+}
+
+.auth-notice {
+  margin: 4px 0 12px;
+  color: #2e7d32;
+}
+
+.auth-primary,
+.auth-kakao {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  font-size: 16px;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.auth-primary {
+  background: #333;
+  color: #fff;
+}
+
+.auth-primary {
+  min-height: 44px;
+}
+
+.auth-primary:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.auth-kakao {
+  background: #fee500;
+  color: #191919;
+}
+
+.auth-switch {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.me-info {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 8px 16px;
+}
+
+.me-info dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.me-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.me-row .auth-kakao {
+  width: auto;
+  margin-top: 0;
+  padding: 8px 16px;
+}
+
+.me-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.me-danger {
+  color: #c62828;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 내 화장대 (설계 7장: 폰 카드 목록 + 빠른 버튼, PC 표 + 정렬·필터 + 성분 펼쳐보기) */
+.shelf-mobile {
+  box-sizing: border-box;
+  padding: 16px;
+}
+
+.shelf-desktop {
+  box-sizing: border-box;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.shelf-desktop-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.shelf-links {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.shelf-empty {
+  margin-top: 32px;
+  text-align: center;
+}
+
+.shelf-primary {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 8px;
+  background: #333;
+  color: #fff;
+  text-decoration: none;
+}
+
+.shelf-cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.shelf-card {
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #e5e1dd;
+  border-radius: 12px;
+}
+
+.shelf-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  overflow-wrap: anywhere;
+}
+
+.shelf-verdict {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #eee;
+  font-size: 13px;
+}
+
+.shelf-verdict-GOOD {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.shelf-verdict-BAD {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.shelf-new-version {
+  margin: 6px 0;
+  font-size: 13px;
+  color: #b26a00;
+}
+
+.shelf-memo {
+  color: #555;
+  overflow-wrap: anywhere;
+}
+
+.shelf-quick {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.shelf-quick button {
+  flex: 1;
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.shelf-quick button.is-selected {
+  background: #333;
+  border-color: #333;
+  color: #fff;
+}
+
+.shelf-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 12px 0;
+}
+
+.shelf-editor textarea,
+.shelf-editor input {
+  font-size: 16px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.shelf-dates {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 6px 12px;
+  align-items: center;
+}
+
+.shelf-controls {
+  display: flex;
+  gap: 24px;
+  margin: 16px 0;
+}
+
+.shelf-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.shelf-table th,
+.shelf-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #e5e1dd;
+  text-align: left;
+  vertical-align: top;
+}
+
+.shelf-table tbody th {
+  font-weight: normal;
+}
+
+.shelf-row-actions {
+  white-space: nowrap;
+}
+
+.shelf-row-actions button + button {
+  margin-left: 8px;
+}
+
+.shelf-expanded td {
+  background: #faf9f8;
+}
+
+.shelf-ingredients ol {
+  columns: 3;
+  margin: 8px 0 16px;
+}
+
+/* 피부 상태 (설계 7장: 선택 칩) */
+.skin-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.skin-chip {
+  padding: 8px 16px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.skin-chip.is-selected {
+  background: #333;
+  border-color: #333;
+  color: #fff;
+}
+
+/* 퍼스널컬러 선택 (no-ai-features 설계 E) */
+.skin-personal-color {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0 0 16px;
+}
+
+.skin-personal-color label {
+  font-weight: 700;
+  color: var(--rose-deep);
+}
+
+.skin-personal-color select {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 280px;
+  min-height: 44px;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid var(--petal);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.skin-personal-color select:focus-visible {
+  outline: 3px solid var(--rose-deep);
+  outline-offset: 2px;
+}
+
+/* 제품 추가 (설계 7장: 폰 단계별 전체 화면, PC 업로드와 미리보기 좌우) */
+.add-mobile {
+  box-sizing: border-box;
+  padding: 16px;
+}
+
+.add-desktop {
+  box-sizing: border-box;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.add-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.add-columns {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(0, 1.4fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.add-right {
+  min-height: 320px;
+  padding: 16px;
+  border: 1px dashed #ccc;
+  border-radius: 12px;
+  background: #faf9f8;
+}
+
+.add-step {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.add-step h2 {
+  margin: 8px 0 0;
+  font-size: 18px;
+}
+
+.add-step input[type='file'] {
+  font-size: 15px;
+}
+
+.add-file-label {
+  font-weight: 600;
+}
+
+.add-secondary {
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.add-product-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.add-ingredients {
+  margin: 4px 0;
+  padding-left: 20px;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.add-preview {
+  display: block;
+  max-width: 100%;
+  max-height: 70vh;
+  margin: 0 auto;
+}
+
+
+
+
+
+
+.crop-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.crop-area {
+  position: relative;
+  align-self: center;
+  max-width: 100%;
+  overflow: hidden;
+  touch-action: none;
+  user-select: none;
+  cursor: crosshair;
+}
+
+.crop-area img {
+  display: block;
+  max-width: 100%;
+  max-height: 70vh;
+  pointer-events: none;
+}
+
+.crop-rect {
+  position: absolute;
+  box-sizing: border-box;
+  border: 2px solid #ff6f00;
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
+
+/* 성분 확인 (설계 7장: 폰 한 줄씩 목록 + 하단 고정 저장, PC 사진과 성분 목록 나란히) */
+.confirm-desktop {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 1.2fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.confirm-photo {
+  position: sticky;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border: 1px dashed #ccc;
+  border-radius: 12px;
+  background: #faf9f8;
+}
+
+.confirm-mobile {
+  padding-bottom: 96px;
+}
+
+.confirm-savebar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  background: #fff;
+  border-top: 1px solid #e5e5e5;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.confirm-warning {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #fff4e5;
+  color: #6b3d00;
+}
+
+.confirm-warning p {
+  margin: 0;
+}
+
+.confirm-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid #eee;
+}
+
+.confirm-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.confirm-item-fuzzy {
+  background: #fffbea;
+}
+
+.confirm-item-unmatched {
+  background: #fff6f4;
+}
+
+.confirm-badge {
+  flex: none;
+  width: 24px;
+  text-align: center;
+}
+
+.confirm-item-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.confirm-name {
+  overflow-wrap: anywhere;
+}
+
+.confirm-raw {
+  font-size: 12px;
+  color: #777;
+}
+
+.confirm-item-body input,
+.confirm-item-body select,
+.confirm-field input,
+.confirm-field select,
+.confirm-add input,
+.confirm-paste textarea {
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 16px;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.confirm-item-actions {
+  display: flex;
+  flex: none;
+  gap: 4px;
+}
+
+.confirm-item-actions button {
+  min-width: 36px;
+  min-height: 36px;
+}
+
+.confirm-add {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 8px;
+  align-items: center;
+}
+
+.confirm-add label {
+  grid-column: 1 / -1;
+  font-weight: 600;
+}
+
+.confirm-paste,
+.confirm-product {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 전성분 캡처 이미지 글자 읽기(2026-10-26). label을 버튼처럼 보이게 한다(파일 고르기) */
+.confirm-ocr {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+
+.confirm-ocr-status {
+  margin: 0;
+  font-size: 13px;
+  color: var(--info-ink);
+}
+
+.confirm-ocr-button,
+.add-paste-image,
+.add-paste-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 9px 17px;
+  border: 1px solid var(--petal);
+  border-radius: 999px;
+  background: white;
+  color: var(--rose-deep);
+  font: 600 13px/1.5 var(--font-ui);
+  cursor: pointer;
+}
+
+.confirm-ocr-button[aria-disabled='true'],
+.add-paste-image[aria-disabled='true'] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+:is(.confirm-ocr input, .add-paste-actions input):focus-visible + label {
+  outline: 3px solid var(--rose-deep);
+  outline-offset: 2px;
+}
+
+.confirm-ocr-lowmatch {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: var(--warn-bg);
+  color: var(--warn-ink);
+  font-size: 13px;
+}
+
+.confirm-ocr-lowmatch p {
+  margin: 0;
+}
+
+.confirm-ocr-lowmatch button {
+  align-self: flex-start;
+}
+
+.add-paste-start {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 280px;
+}
+
+.add-paste-start h2 {
+  margin: 0;
+  font-size: 18px;
+  color: var(--rose-deep);
+}
+
+.add-paste-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.vanity-app-content .add-paste-actions button {
+  background: var(--rose-strong);
+  border-color: var(--rose-strong);
+  color: white;
+}
+
+.confirm-product h3 {
+  margin: 8px 0 0;
+}
+
+.confirm-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.confirm-candidates {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.confirm-candidates ul {
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.confirm-candidates li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+}
+
+/* 제품 상세 (설계 7장: 폰 한 열, PC 같은 내용을 넓게) */
+.product-mobile {
+  box-sizing: border-box;
+  padding: 16px;
+}
+
+.product-desktop {
+  box-sizing: border-box;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.product-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.product-head h1 {
+  margin: 0 0 4px;
+  overflow-wrap: anywhere;
+}
+
+.product-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.product-unmatched {
+  color: #b54708;
+  font-size: 13px;
+}
+
+.product-versions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.product-diff-list h3 {
+  margin: 8px 0 4px;
+  font-size: 15px;
+}
+
+/* 공개 메인 페이지 (폰 한 열, PC 가운데 카드) */
+.home-mobile {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 48px 16px;
+}
+
+.home-page {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 96px 16px;
+  background: #f6f4f2;
+}
+
+.home-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 560px;
+  height: fit-content;
+  padding: 48px 40px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.home-mobile h1,
+.home-card h1 {
+  margin: 0;
+}
+
+.home-intro {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.home-greeting {
+  margin: 0;
+  font-weight: 600;
+}
+
+.home-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.home-button {
+  display: block;
+  box-sizing: border-box;
+  margin-top: 0;
+  text-align: center;
+  text-decoration: none;
+}
+
+.add-secondary.home-button {
+  color: #333;
+}
+
+.home-card .home-actions {
+  flex-direction: row;
+}
+
+.home-card .home-button {
+  flex: 1;
+}
+
+/* 내 정보: 닉네임 변경 */
+.me-nickname {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+
+.me-nickname button,
+.me-nickname-actions button {
+  min-height: 44px;
+  padding: 8px 16px;
+}
+
+.me-nickname-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.me-nickname-form input {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 320px;
+  min-height: 44px;
+  font-size: 16px;
+}
+
+.me-nickname-actions {
+  display: flex;
+  gap: 8px;
+}
+
+button, input, select, textarea { font-family: var(--font-ui); }

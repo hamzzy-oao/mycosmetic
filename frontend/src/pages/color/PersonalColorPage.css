@@ -1,0 +1,39 @@
+/* 퍼스널 컬러 진단(퍼스널 탭 설계 2절). 색은 index.css 토큰만, 팔레트 칩은 서버가 준 색을 인라인으로 칠한다 */
+.pc { display: flex; flex-direction: column; gap: 18px; max-width: 760px; }
+.pc h2 { margin: 0 0 10px; color: var(--ink); font-size: 16px; }
+.pc-guide ul,
+.pc-issues { display: flex; flex-direction: column; gap: 8px; margin: 0 0 16px; padding-left: 18px; color: var(--ink); font-size: 13px; line-height: 1.7; }
+.pc-issues { padding: 12px 14px 12px 30px; border-radius: 10px; background: var(--warn-bg); color: var(--warn-ink); }
+.pc .auth-primary { width: auto; min-width: 160px; margin: 0; }
+.pc-link { align-self: flex-start; min-height: 44px; padding: 0; border: 0; background: none; color: var(--rose-strong); font: inherit; font-size: 13px; text-decoration: underline; cursor: pointer; }
+.pc-link:focus-visible { outline: 3px solid var(--rose-deep); outline-offset: 2px; }
+
+.pc-camera { display: flex; flex-direction: column; gap: 12px; }
+.pc-video-wrap { position: relative; width: 100%; max-width: 480px; }
+/* lib/faceColor.js WHITE_BOX와 같은 위치(x 35~65%, y 82~95%) */
+.pc-white-box { position: absolute; left: 35%; top: 82%; width: 30%; height: 13%; border: 2px dashed var(--cream); border-radius: 8px; box-shadow: 0 0 0 1px var(--ink); }
+.pc-white-toggle { display: flex; align-items: center; gap: 8px; min-height: 44px; color: var(--ink); font-size: 13px; font-weight: 400; }
+.pc-skin { display: flex; align-items: center; gap: 10px; }
+.pc-skin-chip { display: inline-block; width: 36px; height: 36px; border: 1px solid var(--petal); border-radius: 50%; }
+.pc-video { width: 100%; max-width: 480px; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 16px; background: var(--ink); transform: scaleX(-1); }
+.pc-fallback,
+.pc-manual,
+.pc-result,
+.pc-saved { display: flex; flex-direction: column; gap: 10px; padding: 18px; border: 1px solid var(--petal); border-radius: 14px; background: var(--cream); color: var(--ink); font-size: 13px; }
+.pc-result p,
+.pc-saved p { margin: 0; }
+
+.pc-drape-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.pc-drape { display: flex; flex-direction: column; gap: 10px; margin: 0; }
+.pc-drape-frame { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--petal); border-radius: 14px; background: var(--cream); }
+.pc-drape-frame img,
+.pc-drape-noimage { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; transform: scaleX(-1); }
+.pc-drape-noimage { background: var(--blush); }
+.pc-drape-swatches { display: grid; grid-template-columns: repeat(var(--pc-swatch-count, 8), 1fr); height: 34px; }
+.pc-drape .auth-primary { width: 100%; min-width: 0; }
+.pc-disclaimer { margin: 0; color: var(--hint); font-size: 12px; }
+
+@media (max-width: 767px) {
+	.pc-drape-pair { gap: 8px; }
+	.pc-drape-swatches { height: 24px; }
+}

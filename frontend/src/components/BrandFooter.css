@@ -1,0 +1,6 @@
+.vanity-brand-footer { display:flex; align-items:center; justify-content:center; gap:24px; padding:28px 24px; background:#fff8fc; border-top:1px solid #ffb9d3; color:#ad174d; }
+.vanity-brand-footer > a { display:block; flex-shrink:0; }
+.vanity-brand-footer img { display:block; width:100px; height:100px; }
+.vanity-brand-footer .vanity-brand-footer-copy p { margin:0 0 10px; font:700 16px/1.7 var(--font-editorial); }
+.vanity-brand-footer small { display:block; font:400 11px/1.8 var(--font-ui); color:#875565; }
+@media(max-width:767px) { .vanity-brand-footer { flex-direction:column; gap:12px; text-align:center; padding:24px 18px; }.vanity-brand-footer img { width:84px; height:84px; }.vanity-brand-footer small { font-size:10px; } }

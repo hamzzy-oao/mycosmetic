@@ -1,0 +1,1 @@
+{"id":"msg_01SyntheticSample0000000001","type":"message","role":"assistant","model":"claude-opus-5-5","content":[{"type":"text","text":"{\"ingredientSectionFound\":true,\"ingredients\":[\"정제수\",\"글리세린\",\"나이아신아마이드\",\"부틸렌글라이콜\",\"판테놀\"],\"unreadableParts\":[]}"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":1500,"output_tokens":60}}

@@ -1,0 +1,15 @@
+# Playwright E2E 전용(계획 Task 26). 실제 JAR를 가짜 AI와 E2E 전용 DB로 띄운다.
+# 띄울 때마다 E2eDatabaseConfig가 DB를 clean → migrate 하고, classpath:e2e(DB/e2e/)의 성분 사전 시드를 넣는다.
+# 로컬에서 mycosmetic_e2e 권한이 없으면 --spring.datasource.url로 mycosmetic_test를 쓴다(e2e/playwright.config.js의 E2E_DB)
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mycosmetic_e2e?serverTimezone=Asia/Seoul
+  flyway:
+    locations: classpath:migration,classpath:e2e
+    clean-disabled: false
+# 실제 Claude 대신 저장해 둔 결과(fake/extraction-sample.json)를 돌려준다
+app.extraction.client: fake
+# http://localhost에서 돌리므로 토큰 쿠키에 Secure를 붙이지 않는다(운영은 항상 true)
+app.cookie.secure: false
+# 식약처 주간 배치·정리 스케줄러가 E2E 중에 돌지 않게 한다
+app.scheduling.enabled: false

@@ -1,0 +1,23 @@
+/* 메인으로 가는 로고 링크. 색은 index.css :root 토큰 */
+.vanity-home-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 2px;
+	min-height: 44px;
+	min-width: 44px;
+	color: var(--rose);
+	font-family: Georgia, serif;
+	font-size: 20px;
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	text-decoration: none;
+}
+
+.vanity-home-link:hover {
+	color: var(--rose-deep);
+}
+
+.vanity-home-link:focus-visible {
+	outline: 3px solid var(--rose-deep);
+	outline-offset: 2px;
+}

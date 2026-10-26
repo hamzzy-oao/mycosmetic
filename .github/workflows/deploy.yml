@@ -1,0 +1,94 @@
+# main에 합쳐지면: CI 전체(ci.yml) 통과 → Docker 이미지 빌드 → GHCR 푸시 → EC2에서 deploy.sh <sha> 실행.
+# deploy.sh가 헬스체크에 실패하면 이전 이미지로 되돌리고 0이 아닌 코드로 끝나서 이 워크플로도 실패한다.
+# 필요한 저장소 비밀값(deploy/aws.md 2-2): EC2_HOST, EC2_SSH_KEY, EC2_KNOWN_HOSTS, (선택) EC2_USER
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# 배포는 한 번에 하나씩. 진행 중인 배포는 취소하지 않는다
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    uses: ./.github/workflows/ci.yml
+    permissions:
+      contents: read
+
+  deploy:
+    needs: ci
+    # 이미지 푸시·EC2 배포는 main에서만. 다른 브랜치에서 workflow_dispatch로 돌리면 CI만 하고 이 작업은 건너뛴다.
+    # GitHub의 production 환경도 배포 브랜치를 main으로 제한한다(deploy/aws.md 2-2)
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: production
+    permissions:
+      contents: read
+      packages: write
+    env:
+      EC2_HOST: ${{ secrets.EC2_HOST }}
+      EC2_USER: ${{ secrets.EC2_USER || 'ec2-user' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # CI의 backend 작업이 만든 JAR(프론트·Flyway SQL 포함)를 그대로 이미지에 넣는다
+      - uses: actions/download-artifact@v4
+        with:
+          name: mycosmetic-jar
+          path: image-context
+
+      - name: 이미지 이름 정하기
+        run: |
+          owner="${GITHUB_REPOSITORY_OWNER,,}"
+          echo "IMAGE_REPO=ghcr.io/${owner}/mycosmetic" >> "$GITHUB_ENV"
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: docker/setup-buildx-action@v3
+
+      - name: 이미지 빌드·푸시
+        uses: docker/build-push-action@v6
+        with:
+          context: image-context
+          file: deploy/Dockerfile
+          push: true
+          tags: ${{ env.IMAGE_REPO }}:${{ github.sha }}
+
+      - name: SSH 준비
+        env:
+          EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
+          EC2_KNOWN_HOSTS: ${{ secrets.EC2_KNOWN_HOSTS }}
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$EC2_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "$EC2_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+
+      - name: EC2 배포(헬스체크·되돌리기는 deploy.sh가 한다)
+        env:
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ACTOR: ${{ github.actor }}
+          SHA: ${{ github.sha }}
+        run: |
+          SSH="ssh -i $HOME/.ssh/deploy_key -o StrictHostKeyChecking=yes -o ConnectTimeout=20 ${EC2_USER}@${EC2_HOST}"
+          # 저장소의 최신 스크립트로 배포한다
+          scp -i "$HOME/.ssh/deploy_key" -o StrictHostKeyChecking=yes deploy/deploy.sh "${EC2_USER}@${EC2_HOST}:/opt/mycosmetic/deploy.sh"
+          # 비공개 GHCR 이미지를 받을 수 있게 이번 실행의 토큰으로 로그인(토큰은 표준 입력으로만 넘긴다)
+          printf '%s' "$GHCR_TOKEN" | $SSH "docker login ghcr.io -u '$ACTOR' --password-stdin > /dev/null"
+          $SSH "IMAGE_REPO='$IMAGE_REPO' bash /opt/mycosmetic/deploy.sh '$SHA'; rc=\$?; docker logout ghcr.io > /dev/null; exit \$rc"
+
+      - name: SSH 키 지우기
+        if: always()
+        run: rm -f ~/.ssh/deploy_key

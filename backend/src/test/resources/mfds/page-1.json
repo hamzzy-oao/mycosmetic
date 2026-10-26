@@ -1,0 +1,48 @@
+{
+  "header": {
+    "resultCode": "00",
+    "resultMsg": "NORMAL SERVICE."
+  },
+  "body": {
+    "pageNo": 1,
+    "totalCount": 21345,
+    "numOfRows": 5,
+    "items": [
+      {
+        "INGR_KOR_NAME": "정제수",
+        "INGR_ENG_NAME": "Water",
+        "CAS_NO": "7732-18-5",
+        "ORIGIN_MAJOR_KOR_NAME": "물을 증류, 이온교환 등의 방법으로 정제한 것이다.",
+        "INGR_SYNONYM": "물, 아쿠아, Aqua"
+      },
+      {
+        "INGR_KOR_NAME": "나이아신아마이드",
+        "INGR_ENG_NAME": "Niacinamide",
+        "CAS_NO": "98-92-0",
+        "ORIGIN_MAJOR_KOR_NAME": "피리딘-3-카복스아마이드이다.",
+        "INGR_SYNONYM": "니코틴아마이드, 니코틴산아미드, Nicotinamide"
+      },
+      {
+        "INGR_KOR_NAME": "1,2-헥산다이올",
+        "INGR_ENG_NAME": "1,2-Hexanediol",
+        "CAS_NO": "6920-22-5",
+        "ORIGIN_MAJOR_KOR_NAME": "헥산-1,2-다이올이다.",
+        "INGR_SYNONYM": "1,2-헥산디올, 1,2-Dihydroxyhexane"
+      },
+      {
+        "INGR_KOR_NAME": "글리세린",
+        "INGR_ENG_NAME": "Glycerin",
+        "CAS_NO": "56-81-5",
+        "ORIGIN_MAJOR_KOR_NAME": "프로판-1,2,3-트라이올이다.",
+        "INGR_SYNONYM": null
+      },
+      {
+        "INGR_KOR_NAME": "티타늄디옥사이드",
+        "INGR_ENG_NAME": "Titanium Dioxide",
+        "CAS_NO": "13463-67-7",
+        "ORIGIN_MAJOR_KOR_NAME": "이산화티탄이다.",
+        "INGR_SYNONYM": "씨아이77891, CI 77891"
+      }
+    ]
+  }
+}

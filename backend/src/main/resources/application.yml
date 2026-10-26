@@ -1,0 +1,56 @@
+spring:
+  application.name: mycosmetic
+  config.import: optional:file:../.env[.properties]
+  datasource:
+    url: jdbc:mysql://localhost:3306/mycosmetic?serverTimezone=Asia/Seoul
+    username: mycosmetic
+    password: ${MYSQL_PASSWORD}
+  flyway.locations: classpath:migration
+  jpa:
+    open-in-view: false
+    hibernate.ddl-auto: validate
+  jackson.time-zone: Asia/Seoul
+  # 전성분 사진 업로드(설계 4.1). 사진은 메모리에서만 다루도록 임계값을 최대 크기보다 크게 둬서 임시 파일을 만들지 않는다
+  servlet.multipart:
+    max-file-size: 5MB
+    max-request-size: 6MB
+    file-size-threshold: 6MB
+  # JAR 안의 static/ 다음으로 ../frontend/build/를 본다. 이클립스 실행은 Gradle processResources를 거치지 않기 때문
+  web.resources.static-locations: classpath:/static/, file:../frontend/build/
+server.forward-headers-strategy: framework
+# max-request-size(6MB)를 넘는 본문도 Tomcat이 남은 부분을 읽어 버리고 413 JSON을 돌려주도록(기본 2MB면 연결을 끊는다)
+server.tomcat.max-swallow-size: 10MB
+management.endpoints.web.exposure.include: health
+# 콘솔 로그: 로컬은 사람이 읽는 형식, 운영(Docker)은 Dockerfile의 LOGGING_STRUCTURED_FORMAT_CONSOLE=logstash로 JSON
+app:
+  # access_token 서명 키(Base64, 디코딩 후 32바이트 이상). 값은 .env / Parameter Store의 JWT_SECRET
+  jwt.secret: ${JWT_SECRET}
+  # 토큰 쿠키의 Secure 속성. 운영은 항상 true
+  cookie.secure: true
+  # 카카오 OAuth2 앱 키(.env / Parameter Store). 비어 있어도 앱은 뜨고 카카오 로그인만 실패한다(KakaoOAuth2Config)
+  kakao:
+    client-id: ${KAKAO_CLIENT_ID:}
+    client-secret: ${KAKAO_CLIENT_SECRET:}
+  # 카카오 로그인 뒤 이동할 화면 주소의 앞부분. 운영은 빈 값(같은 출처), 개발은 FRONTEND_BASE_URL=http://localhost:3000
+  frontend-base-url: ${FRONTEND_BASE_URL:}
+  ai:
+    # 성분 읽기 모델. 2026-10-23 사용자 결정으로 Sonnet 5.5(비용 절반). 평가 비교 때는 .env의 AI_MODEL로 바꾼다
+    model: ${AI_MODEL:claude-sonnet-5-5}
+    max-tokens: 16000
+    timeout: 60s
+    prompt-version: v1
+  # claude | fake (fake는 저장해 둔 결과를 돌려준다. 테스트·E2E용)
+  extraction.client: claude
+  # 재시도 가능한 AI 실패(타임아웃, 429, 5xx, JSON 오류) 뒤 다시 부르기 전 대기 시간(설계 6.2)
+  extraction.retry-delay: 2s
+  # 올리브영 링크로 전성분·용량·개봉 후 사용기간 채우기. 상품정보 제공고시는 공개 API가 아니고 robots.txt도 허용하지 않아
+  # 끌 수 있게 했다(false면 제품명·사진만). 정식 서비스 전에 다시 결정한다
+  product-page.oliveyoung-ingredients: ${OLIVEYOUNG_INGREDIENTS:true}
+  # 식약처 화장품 원료성분정보 API(공공데이터포털). 서비스 키(Decoding 키)는 .env / Parameter Store의 MFDS_SERVICE_KEY.
+  # 비어 있어도 앱은 뜨고 사전 가져오기만 실패한다
+  mfds:
+    base-url: https://apis.data.go.kr/1471000/CsmtcsIngdCpntInfoService01
+    service-key: ${MFDS_SERVICE_KEY:}
+    timeout: 30s
+    page-size: 100
+    page-delay: 200ms

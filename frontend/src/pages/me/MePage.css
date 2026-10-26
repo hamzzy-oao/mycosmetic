@@ -1,0 +1,26 @@
+/* Account settings share the skin analysis spacing and palette. */
+.vanity-app-content :is(.auth-card,.auth-column):has(.me-profile) { width:100%; max-width:800px; margin:0 auto; padding:0; border:0; border-radius:0; box-shadow:none; background:transparent; }
+.vanity-app-content :is(.auth-card,.auth-column):has(.me-profile) > h1 { margin:0 0 24px; padding:0 0 18px; font:700 21px/1.5 var(--font-ui); }
+.vanity-app-content .me-profile { display:flex; flex-direction:column; gap:24px; }
+.vanity-app-content .me-profile .me-info { display:grid; grid-template-columns:64px minmax(0,1fr); align-items:center; gap:18px 16px; margin:0; padding:24px; border:1px solid #e7b4c5; border-radius:4px; background:#fff8fb; }
+.vanity-app-content .me-profile .me-info :is(dt,dd) { margin:0; font-size:13px; }
+.vanity-app-content .me-profile :is(.me-kakao,.me-skin) { padding:24px; border:1px solid #e7b4c5; border-radius:4px; background:white; }
+.vanity-app-content .me-profile h2 { margin:0 0 18px; padding-bottom:14px; border-bottom:1px solid #efd3de; color:#a81438; font:700 14px/1.6 var(--font-ui); }
+.vanity-app-content .me-profile .me-row { margin:0; min-height:42px; font-size:13px; }
+.vanity-app-content .me-profile .me-nickname { gap:16px; }
+.vanity-app-content .me-profile button { min-height:40px; padding:8px 16px; border-radius:4px; font-size:12px; }
+.vanity-app-content .me-profile .skin-chips { margin:18px 0 22px; gap:8px; }
+.vanity-app-content .me-profile .skin-chip { min-width:64px; background:#fff9fb; }
+.vanity-app-content .me-profile .skin-chip.is-selected { background:#bd173e; color:white; }
+.vanity-app-content .me-profile .skin-personal-color { margin:0; gap:8px; }
+.vanity-app-content .me-profile .skin-personal-color select { border-radius:4px; }
+.vanity-app-content .me-profile .auth-hint { margin:0; color:#946575; font-size:12px; line-height:1.8; }
+.vanity-app-content .me-profile .auth-primary { display:block; width:auto; min-width:140px; margin:20px 0 0 auto; border-radius:4px; background:#bd173e; color:white; }
+.vanity-app-content .me-profile .me-actions { margin:0; padding:18px 0 0; border-top:1px solid #efd3de; justify-content:flex-end; gap:10px; }
+.vanity-app-content .me-profile .me-nickname-form { width:100%; }
+@media(max-width:767px) {
+ .vanity-app-content .me-profile { gap:20px; }
+ .vanity-app-content .me-profile :is(.me-info,.me-kakao,.me-skin) { padding:18px; }
+ .vanity-app-content .me-profile .me-info { grid-template-columns:52px minmax(0,1fr); gap:16px 10px; }
+ .vanity-app-content .me-profile .me-nickname { gap:10px; }
+}

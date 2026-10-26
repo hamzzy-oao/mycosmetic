@@ -1,0 +1,15 @@
+.env
+backend/build/
+backend/.gradle/
+frontend/node_modules/
+frontend/build/
+e2e/node_modules/
+e2e/test-results/
+.settings/
+.project
+.classpath
+bin/
+
+# 서버 구동에 필요 없는 파일 모음(커밋하지 않음)
+del/
+.claude

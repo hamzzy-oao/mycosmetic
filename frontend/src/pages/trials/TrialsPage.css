@@ -1,0 +1,271 @@
+/* 새 제품 2주 테스트 (설계 2026-10-24 B). 색은 index.css :root 토큰만 쓴다 */
+.trial-page {
+	box-sizing: border-box;
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 16px;
+	color: var(--ink);
+	font-family: 'Malgun Gothic', 'Segoe UI', sans-serif;
+}
+
+.trial-page * {
+	box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+	.trial-page {
+		padding: 32px 24px;
+	}
+}
+
+.trial-intro {
+	margin: 0 0 16px;
+	font-size: 15px;
+	line-height: 1.6;
+}
+
+.trial-panel {
+	margin: 0 0 16px;
+	padding: 16px;
+	border: 1px solid var(--petal);
+	border-radius: 16px;
+	background: var(--cream);
+}
+
+.trial-panel h2 {
+	margin: 0 0 8px;
+	color: var(--rose-deep);
+	font-size: 18px;
+}
+
+.trial-count {
+	color: var(--rose-strong);
+	font-size: 14px;
+}
+
+.trial-hint {
+	margin: 8px 0;
+	color: var(--hint);
+	font-size: 13px;
+}
+
+.trial-error {
+	color: var(--error);
+}
+
+.trial-page a {
+	color: var(--rose-strong);
+}
+
+.trial-page button,
+.trial-page select {
+	font: inherit;
+}
+
+.trial-page button {
+	min-height: 44px;
+	padding: 0 16px;
+	border: 1px solid var(--petal);
+	border-radius: 999px;
+	background: var(--cream);
+	color: var(--ink);
+	cursor: pointer;
+}
+
+.trial-page button:disabled {
+	cursor: default;
+	opacity: 0.45;
+}
+
+.trial-page .trial-primary {
+	border-color: var(--rose-strong);
+	background: var(--rose-strong);
+	color: var(--cream);
+	font-weight: 700;
+}
+
+.trial-page .trial-link-button {
+	border-color: transparent;
+	background: transparent;
+	color: var(--rose-strong);
+	text-decoration: underline;
+}
+
+.trial-page a:focus-visible,
+.trial-page button:focus-visible,
+.trial-page select:focus-visible {
+	outline: 3px solid var(--rose-deep);
+	outline-offset: 2px;
+}
+
+.trial-start {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+}
+
+.trial-start label {
+	width: 100%;
+	font-weight: 700;
+	font-size: 14px;
+}
+
+.trial-start select {
+	flex: 1 1 220px;
+	min-width: 0;
+	min-height: 44px;
+	padding: 0 10px;
+	border: 1px solid var(--petal);
+	border-radius: 12px;
+	background: var(--cream);
+	color: var(--ink);
+}
+
+.trial-list {
+	display: grid;
+	gap: 12px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.trial-card {
+	padding: 14px;
+	border-radius: 12px;
+	background: var(--blush);
+}
+
+.trial-card.is-DONE {
+	background: var(--mint);
+}
+
+.trial-card-head {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 4px 12px;
+}
+
+.trial-card-meta {
+	font-size: 13px;
+}
+
+/* 14일 칸 */
+.trial-days {
+	display: grid;
+	grid-template-columns: repeat(7, minmax(0, 1fr));
+	gap: 4px;
+	margin: 12px 0 8px;
+	padding: 0;
+	list-style: none;
+}
+
+.trial-day {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 32px;
+	border: 1px solid var(--petal);
+	border-radius: 8px;
+	background: var(--cream);
+	font-size: 12px;
+}
+
+.trial-day.is-future {
+	border-style: dashed;
+	color: var(--hint);
+}
+
+.trial-day.is-GOOD {
+	border-color: var(--ok);
+	background: var(--ok);
+	color: var(--cream);
+	font-weight: 700;
+}
+
+.trial-day.is-OK {
+	border-color: var(--notice);
+	background: var(--notice);
+	color: var(--cream);
+	font-weight: 700;
+}
+
+.trial-day.is-BAD {
+	border-color: var(--rose-strong);
+	background: var(--rose-strong);
+	color: var(--cream);
+	font-weight: 700;
+}
+
+@media (min-width: 768px) {
+	.trial-days {
+		grid-template-columns: repeat(14, minmax(0, 1fr));
+	}
+}
+
+.trial-summary,
+.trial-result {
+	margin: 4px 0;
+	font-size: 13px;
+}
+
+.trial-actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+	margin-top: 8px;
+}
+
+.trial-ask {
+	width: 100%;
+	font-size: 13px;
+	font-weight: 700;
+}
+
+.trial-record-link {
+	display: inline-flex;
+	align-items: center;
+	min-height: 44px;
+	width: 100%;
+	font-weight: 700;
+}
+
+.trial-legend {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 16px;
+	font-size: 13px;
+}
+
+.trial-legend-item {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.trial-dot {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 3px;
+	background: var(--hint);
+}
+
+.trial-dot.is-empty {
+	border: 1px solid var(--petal);
+	background: var(--cream);
+}
+
+.is-GOOD .trial-dot {
+	background: var(--ok);
+}
+
+.is-OK .trial-dot {
+	background: var(--notice);
+}
+
+.is-BAD .trial-dot {
+	background: var(--rose-strong);
+}

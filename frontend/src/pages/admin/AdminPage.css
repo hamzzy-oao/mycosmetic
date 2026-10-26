@@ -1,0 +1,26 @@
+.admin-page { color:var(--ink); }
+.admin-page-heading { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:16px; margin-bottom:20px; }
+.admin-page-heading h1 { margin:0; }
+.admin-product-count { margin:0; padding:10px 14px; border:1px solid #e3afc0; border-radius:4px; background:#fff6f9; font-size:13px; }
+.admin-product-count strong { margin-left:6px; font-size:16px; white-space:nowrap; }
+.admin-search { padding:20px; border:1px solid #e3afc0; background:#fff6f9; margin-bottom:24px; }
+.admin-search > div { display:flex; gap:10px; margin-top:8px; }
+.admin-search input { flex:1; }
+.admin-grid { display:grid; grid-template-columns:minmax(240px,1fr) minmax(0,2fr); gap:24px; align-items:start; }
+.admin-products,.admin-editor { min-width:0; padding:22px; border:1px solid #e3afc0; border-radius:4px; background:#fff; }
+.admin-products h2,.admin-editor h2 { margin-top:0; }
+.admin-products ul { list-style:none; padding:0; margin:0; }
+.vanity-app-content .admin-products li button { width:100%; border:0; border-bottom:1px solid #f0d7e0; border-radius:0; text-align:left; padding:12px; }
+.admin-products li span,.admin-products li strong { display:block; }
+.admin-products li span { font-size:11px; color:#946475; }
+.vanity-app-content .admin-products button[aria-pressed='true'] { background:#ffe5ee; }
+.admin-products nav,.admin-actions { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:20px; }
+.admin-editor label { display:block; margin:18px 0 8px; }
+.admin-editor textarea { width:100%; resize:vertical; line-height:1.9; }
+.admin-editor p { font-size:12px; }
+.admin-info-form { padding-bottom:24px; margin-bottom:24px; border-bottom:1px solid #e3afc0; }
+.admin-info-form input,.admin-info-form select { width:100%; }
+.admin-info-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.vanity-app-content .admin-delete { color:#ad123b; border-color:#ad123b; }
+.vanity-app-content .admin-editor button[type='submit'] { background:#bd173e; color:white; border-radius:4px; }
+@media(max-width:767px) { .admin-grid { grid-template-columns:1fr; }.admin-products,.admin-editor { padding:16px; } }

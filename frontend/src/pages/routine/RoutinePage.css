@@ -1,0 +1,578 @@
+/* 루틴 플래너 (no-ai-features 설계 A). 색은 index.css :root 토큰만 쓴다 */
+.vanity-routine {
+	box-sizing: border-box;
+	color: var(--ink);
+	font-family: 'Malgun Gothic', 'Segoe UI', sans-serif;
+}
+
+.vanity-routine * {
+	box-sizing: border-box;
+}
+
+.vanity-routine-mobile {
+	padding: 16px;
+}
+
+.vanity-routine-desktop {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 32px 24px;
+}
+
+.vanity-routine-head {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px 16px;
+}
+
+.vanity-routine-head h1 {
+	margin: 8px 0;
+	color: var(--rose);
+}
+
+.vanity-routine-links {
+	display: flex;
+	gap: 16px;
+}
+
+.vanity-routine a:focus-visible,
+.vanity-routine button:focus-visible,
+.vanity-routine select:focus-visible,
+.vanity-routine input:focus-visible {
+	outline: 3px solid var(--rose-deep);
+	outline-offset: 2px;
+}
+
+.vanity-routine-columns {
+	display: grid;
+	grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+	gap: 32px;
+	align-items: start;
+}
+
+.vanity-routine-side {
+	position: sticky;
+	top: 16px;
+}
+
+.vanity-routine-section-head {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+}
+
+.vanity-routine-primary,
+.vanity-routine-secondary {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 44px;
+	padding: 10px 20px;
+	border-radius: 999px;
+	font-size: 15px;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.vanity-routine-primary {
+	border: none;
+	background: var(--rose-strong);
+	color: #fff;
+}
+
+.vanity-routine-secondary {
+	border: 1px solid var(--rose-strong);
+	background: #fff;
+	color: var(--rose-strong);
+}
+
+.vanity-routine-primary:disabled,
+.vanity-routine-secondary:disabled {
+	opacity: 0.5;
+	cursor: default;
+}
+
+.vanity-routine-cards {
+	list-style: none;
+	margin: 12px 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.vanity-routine-card {
+	padding: 14px 16px;
+	background: var(--cream);
+	border: 1px solid var(--petal);
+	border-radius: 16px;
+}
+
+.vanity-routine-card-link {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	min-height: 44px;
+	color: inherit;
+	text-decoration: none;
+}
+
+.vanity-routine-card-name {
+	font-weight: 700;
+	color: var(--rose-deep);
+	overflow-wrap: anywhere;
+}
+
+.vanity-routine-meta {
+	font-size: 13px;
+}
+
+.vanity-routine-mini-steps {
+	margin: 8px 0 0;
+	padding-left: 20px;
+	font-size: 14px;
+}
+
+.vanity-routine-step-type {
+	font-size: 12px;
+	color: var(--rose-strong);
+}
+
+.vanity-routine-today {
+	padding: 4px 16px 8px;
+	background: var(--blush);
+	border-radius: 16px;
+}
+
+.vanity-routine-mobile .vanity-routine-today {
+	margin-bottom: 16px;
+}
+
+.vanity-routine-basics {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.vanity-routine-basics input,
+.vanity-routine select {
+	min-height: 44px;
+	font-size: 16px;
+	padding: 8px 10px;
+	border: 1px solid var(--petal);
+	border-radius: 8px;
+	background: #fff;
+	color: var(--ink);
+	max-width: 100%;
+}
+
+.vanity-routine-chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-top: 8px;
+}
+
+.vanity-routine-chips.is-days {
+	gap: 4px;
+}
+
+.vanity-routine-chip {
+	min-width: 44px;
+	min-height: 44px;
+	padding: 8px 16px;
+	font-size: 15px;
+	border: 1px solid var(--petal);
+	border-radius: 999px;
+	background: #fff;
+	color: var(--ink);
+	cursor: pointer;
+}
+
+.vanity-routine-chip.is-day {
+	padding: 8px 0;
+}
+
+.vanity-routine-chip.is-selected {
+	background: var(--rose-strong);
+	border-color: var(--rose-strong);
+	color: #fff;
+}
+
+.vanity-routine-steps-title {
+	margin: 24px 0 8px;
+	font-size: 18px;
+}
+
+.vanity-routine-steps {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.vanity-routine-step {
+	display: grid;
+	grid-template-columns: 32px minmax(0, 1fr);
+	gap: 6px 10px;
+	align-items: center;
+	padding: 10px 12px;
+	background: var(--cream);
+	border: 1px solid var(--petal);
+	border-radius: 12px;
+}
+
+.vanity-routine-step.is-warned {
+	border-color: var(--rose-strong);
+}
+
+.vanity-routine-step-no {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	background: var(--rose);
+	color: #fff;
+	font-size: 14px;
+}
+
+.vanity-routine-step-title {
+	overflow-wrap: anywhere;
+}
+
+.vanity-routine-step select {
+	grid-column: 2;
+}
+
+.vanity-routine-step-actions {
+	grid-column: 2;
+	display: flex;
+	gap: 6px;
+}
+
+.vanity-routine-step-actions button,
+.vanity-routine-add button,
+.vanity-routine-actions button {
+	min-width: 44px;
+	min-height: 44px;
+	padding: 8px 12px;
+	border: 1px solid var(--petal);
+	border-radius: 8px;
+	background: #fff;
+	color: var(--ink);
+	cursor: pointer;
+}
+
+.vanity-routine-desktop .vanity-routine-step {
+	grid-template-columns: 32px minmax(0, 1fr) auto auto;
+}
+
+.vanity-routine-desktop .vanity-routine-step select,
+.vanity-routine-desktop .vanity-routine-step-actions {
+	grid-column: auto;
+}
+
+.vanity-routine-add {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin-top: 16px;
+	padding: 12px;
+	border: 1px dashed var(--petal);
+	border-radius: 12px;
+}
+
+.vanity-routine-check {
+	margin-top: 24px;
+	padding: 4px 16px 16px;
+	background: #fff;
+	border: 1px solid var(--petal);
+	border-radius: 16px;
+}
+
+.vanity-routine-desktop .vanity-routine-check {
+	margin-top: 0;
+}
+
+.vanity-routine-warnings {
+	list-style: none;
+	margin: 0 0 12px;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.vanity-routine-warning {
+	padding: 10px 12px;
+	border-radius: 10px;
+	background: var(--info-bg);
+	color: var(--info-ink);
+}
+
+.vanity-routine-warning p {
+	margin: 4px 0 0;
+}
+
+.vanity-routine-warning.is-WARNING {
+	background: var(--blush);
+	color: var(--rose-deep);
+}
+
+.vanity-routine-warning.is-CAUTION {
+	background: var(--warn-bg);
+	color: var(--warn-ink);
+}
+
+.vanity-routine-level {
+	font-size: 13px;
+	font-weight: 700;
+}
+
+.vanity-routine-warning-items {
+	font-size: 13px;
+	overflow-wrap: anywhere;
+}
+
+.vanity-routine-ok {
+	color: var(--ink);
+}
+
+.vanity-routine-actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 12px;
+	margin-top: 16px;
+}
+
+.vanity-routine-actions .vanity-routine-primary {
+	border: none;
+	background: var(--rose-strong);
+	color: #fff;
+	padding: 10px 24px;
+	border-radius: 999px;
+}
+
+.vanity-routine-actions p {
+	flex-basis: 100%;
+}
+
+/* 루틴 탭: 오늘 사용 체크, 사용 기록 */
+.vanity-routine-hint {
+	font-size: 14px;
+}
+
+.vanity-routine-saved {
+	margin: 8px 0 16px;
+	padding: 12px 16px;
+	border-radius: 12px;
+	background: var(--cream);
+	border: 1px solid var(--petal);
+	color: var(--rose-deep);
+}
+
+.vanity-routine-checklist {
+	margin: 12px 0 16px;
+	padding: 12px 16px;
+	background: var(--cream);
+	border-radius: 16px;
+}
+
+.vanity-routine-checklist-head {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+}
+
+.vanity-routine-checklist-head h3 {
+	margin: 4px 0;
+}
+
+.vanity-routine-progress {
+	font-size: 14px;
+	color: var(--rose-strong);
+}
+
+.vanity-routine-checklist ul,
+.vanity-routine-usage ul {
+	list-style: none;
+	margin: 8px 0;
+	padding: 0;
+}
+
+.vanity-routine-checklist li {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	min-height: 44px;
+	border-bottom: 1px solid var(--petal);
+}
+
+.vanity-routine-checklist li:last-child {
+	border-bottom: none;
+}
+
+.vanity-routine-checklist input[type='checkbox'] {
+	flex: none;
+	width: 22px;
+	height: 22px;
+	margin: 0;
+	accent-color: var(--rose-strong);
+}
+
+.vanity-routine-checklist label {
+	flex: 1;
+	min-width: 0;
+	padding: 10px 0;
+	overflow-wrap: anywhere;
+	cursor: pointer;
+}
+
+.vanity-routine-usage {
+	margin-bottom: 16px;
+	padding: 4px 16px 8px;
+	background: var(--cream);
+	border: 1px solid var(--petal);
+	border-radius: 16px;
+}
+
+.vanity-routine-usage li {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 4px 8px;
+	padding: 8px 0;
+	border-bottom: 1px solid var(--petal);
+}
+
+.vanity-routine-usage-name {
+	flex: 1;
+	min-width: 0;
+	overflow-wrap: anywhere;
+}
+
+.vanity-routine-usage-days {
+	font-weight: 700;
+	color: var(--rose-strong);
+}
+
+.vanity-routine-badge {
+	display: inline-block;
+	margin-left: 6px;
+	padding: 2px 8px;
+	border-radius: 999px;
+	background: var(--blush);
+	color: var(--rose-deep);
+	font-size: 12px;
+	font-weight: 400;
+}
+
+@media (max-width: 767px) {
+	.vanity-routine-columns {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Readable routine controls: charcoal content, pink rules, red primary actions. */
+.vanity-routine {
+	--ink: #343033;
+	--routine-muted: #71686d;
+	--routine-paper: #fff;
+	--routine-pink: #fff0f5;
+	font-size: 15px;
+	line-height: 1.6;
+}
+
+.vanity-app-content .vanity-routine :is(h1, h2, h3) {
+	color: var(--ink);
+	font-family: var(--font-ui);
+	font-weight: 700;
+	line-height: 1.45;
+	letter-spacing: -.3px;
+}
+.vanity-app-content .vanity-routine h1 { font-size: 24px; }
+.vanity-app-content .vanity-routine h2 { font-size: 20px; }
+.vanity-app-content .vanity-routine h3 { font-size: 16px; }
+.vanity-app-content .vanity-routine :is(p, label) { color: var(--ink); font-size: 15px; line-height: 1.65; }
+.vanity-app-content .vanity-routine label { font-weight: 500; }
+.vanity-app-content .vanity-routine a { color: var(--ink); }
+.vanity-app-content .vanity-routine :is(.vanity-routine-hint, .vanity-routine-meta, .auth-hint) { color: var(--routine-muted); font-size: 13px; line-height: 1.6; }
+.vanity-app-content .vanity-routine .vanity-routine-head { margin: 0 0 24px; padding: 0 0 20px; }
+.vanity-app-content .vanity-routine .vanity-routine-head h1 { margin: 0; }
+
+.vanity-app-content .vanity-routine .vanity-routine-primary {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	min-height: 48px;
+	padding: 10px 24px;
+	border: 1px solid var(--rose-strong);
+	background: var(--rose-strong);
+	color: var(--routine-paper);
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1.5;
+}
+.vanity-app-content .vanity-routine .vanity-routine-primary:hover:not(:disabled) { background: var(--rose-deep); color: var(--routine-paper); }
+.vanity-app-content .vanity-routine :is(.vanity-routine-secondary, .vanity-routine-step-actions button, .vanity-routine-add button) { background: var(--routine-paper); color: var(--ink); border-color: var(--petal); font-size: 14px; }
+.vanity-app-content .vanity-routine .vanity-routine-chip:not(.is-selected) { color: var(--ink); }
+.vanity-app-content .vanity-routine .me-danger { color: var(--rose-strong); }
+
+.vanity-app-content .vanity-routine :is(.vanity-routine-card, .vanity-routine-today, .vanity-routine-usage, .vanity-routine-step) { background: var(--routine-paper); }
+.vanity-app-content .vanity-routine .vanity-routine-card-name { color: var(--ink); font-size: 16px; }
+.vanity-app-content .vanity-routine :is(.vanity-routine-card-link, .vanity-routine-mini-steps, .vanity-routine-step-title, .vanity-routine-usage-name) { color: var(--ink); font-size: 15px; line-height: 1.6; }
+.vanity-app-content .vanity-routine .vanity-routine-step-type { padding: 2px 6px; border-radius: 5px; background: var(--routine-pink); color: var(--routine-muted); font-size: 13px; }
+.vanity-app-content .vanity-routine :is(.vanity-routine-badge, .vanity-routine-progress) { color: var(--routine-muted); font-size: 13px; }
+.vanity-app-content .vanity-routine .vanity-routine-badge { background: var(--routine-pink); }
+.vanity-app-content .vanity-routine .vanity-routine-usage-days { color: var(--ink); }
+.vanity-app-content .vanity-routine .vanity-routine-usage { margin-top: 24px; padding: 20px; }
+.vanity-app-content .vanity-routine .vanity-routine-usage h2 { margin: 0 0 16px; }
+.vanity-app-content .vanity-routine .vanity-routine-section-head h2 { margin: 0; }
+.vanity-app-content .vanity-routine .vanity-routine-checklist { margin: 24px 0; padding: 0; background: transparent; border-radius: 0; }
+.vanity-app-content .vanity-routine .vanity-routine-checklist label { font-size: 16px; font-weight: 400; }
+.vanity-app-content .vanity-routine .vanity-routine-checklist li { min-height: 56px; }
+.vanity-app-content .vanity-routine .vanity-routine-combination { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--petal); }
+.vanity-app-content .vanity-routine .vanity-routine-combination h3 { margin: 0 0 12px; }
+.vanity-app-content .vanity-routine .has-warning { color: var(--rose-strong); }
+.vanity-app-content .vanity-routine .vanity-routine-warning.is-WARNING :is(p, .vanity-routine-level) { color: var(--rose-deep); }
+.vanity-app-content .vanity-routine .vanity-routine-warning.is-CAUTION :is(p, .vanity-routine-level) { color: var(--warn-ink); }
+.vanity-app-content .vanity-routine .auth-error { color: var(--error); }
+
+.vanity-routine-editor-flow { display: grid; gap: 24px; max-width: 960px; margin: 0 auto; }
+.vanity-routine-editor-section { min-width: 0; padding: 24px; border: 1px solid var(--petal); border-radius: 12px; background: var(--routine-paper); }
+.vanity-app-content .vanity-routine .vanity-routine-editor-section > h2 { display: flex; align-items: center; gap: 10px; margin: 0 0 24px; }
+.vanity-routine-section-number { display: inline-flex; flex: 0 0 28px; align-items: center; justify-content: center; height: 28px; border-radius: 50%; background: var(--routine-pink); color: var(--routine-muted); font-size: 13px; }
+.vanity-routine-section-count { margin-left: auto; color: var(--routine-muted); font-size: 13px; font-weight: 400; }
+.vanity-app-content .vanity-routine .vanity-routine-editor-section > .vanity-routine-basics { padding: 0; border: 0; background: transparent; }
+.vanity-routine-field-label { display: block; margin-top: 16px; font-size: 14px; font-weight: 600; }
+.vanity-app-content .vanity-routine .vanity-routine-editor-section .vanity-routine-check { margin: 0; padding: 0; border: 0; border-radius: 0; }
+.vanity-app-content .vanity-routine .vanity-routine-editor-section .vanity-routine-check h3 { margin-top: 0; }
+.vanity-app-content .vanity-routine .vanity-routine-editor-section .vanity-routine-actions { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--petal); }
+.vanity-app-content .vanity-routine div.vanity-routine-add { display: grid; grid-template-columns: minmax(0, 1fr) minmax(160px, .45fr) auto; gap: 8px 16px; align-items: end; padding: 20px; }
+.vanity-routine-add label[for='routine-add-item'] { grid-column: 1; grid-row: 1; }
+.vanity-routine-add #routine-add-item { grid-column: 1; grid-row: 2; width: 100%; }
+.vanity-routine-add label[for='routine-add-type'] { grid-column: 2; grid-row: 1; }
+.vanity-routine-add #routine-add-type { grid-column: 2; grid-row: 2; width: 100%; }
+.vanity-routine-add button { grid-column: 3; grid-row: 2; white-space: nowrap; }
+
+@media (max-width: 767px) {
+	.vanity-app-content .vanity-routine h1 { font-size: 22px; }
+	.vanity-app-content .vanity-routine h2 { font-size: 18px; }
+	.vanity-routine-list .vanity-routine-head { flex-direction: column; align-items: stretch; gap: 16px; }
+	.vanity-routine-list .vanity-routine-head .vanity-routine-primary { width: 100%; }
+	.vanity-routine-all { margin-top: 24px; }
+	.vanity-routine-editor-section { padding: 20px 16px; }
+	.vanity-app-content .vanity-routine div.vanity-routine-add { display: flex; flex-direction: column; align-items: stretch; gap: 8px; padding: 16px; }
+	.vanity-routine-add label[for='routine-add-type'] { margin-top: 8px; }
+	.vanity-routine-editor-section .vanity-routine-primary { width: 100%; }
+}

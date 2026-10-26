@@ -1,0 +1,185 @@
+/* 화장대 자랑 카드 (설계 2026-10-24 D). 색은 index.css :root 토큰만 쓴다 */
+.share-page {
+	--share-paper: #fff;
+	--share-ink: #342f2e;
+	--share-muted: #786f6b;
+	--share-line: #e5e1de;
+	--share-accent: #a44850;
+	--rose: var(--share-accent);
+	--rose-strong: #93404a;
+	--rose-deep: #71343c;
+	--cream: var(--share-paper);
+	--blush: #f6f4f2;
+	--petal: var(--share-line);
+	box-sizing: border-box;
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 16px;
+	color: var(--share-ink);
+	font-family: 'Malgun Gothic', 'Segoe UI', sans-serif;
+}
+
+.share-page * {
+	box-sizing: border-box;
+}
+
+.share-layout {
+	display: grid;
+	gap: 28px;
+}
+
+@media (min-width: 768px) {
+	.share-page {
+		padding: 32px 24px;
+	}
+
+	.share-layout {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		align-items: start;
+	}
+}
+
+.share-card {
+	margin: 0;
+	padding: 16px;
+	border: 1px solid var(--petal);
+	border-radius: 16px;
+	background: var(--cream);
+	min-width: 0;
+}
+
+.share-card legend {
+	padding: 0 4px;
+	color: var(--share-ink);
+	font-weight: 700;
+	font-size: 18px;
+}
+
+.share-count {
+	display: inline-block;
+	margin-left: 6px;
+	padding: 4px 10px;
+	border-radius: 999px;
+	background: var(--rose-strong);
+	color: var(--share-paper);
+	font-size: 14px;
+}
+
+.share-picks {
+	margin: 16px 0;
+	padding: 0;
+	list-style: none;
+}
+
+.share-picks li + li {
+	margin-top: 8px;
+}
+
+.share-picks li {
+	border: 1px solid var(--petal);
+	border-radius: 12px;
+}
+
+.share-picks .is-selected {
+	background: var(--blush);
+}
+
+.share-picks label {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	min-height: 64px;
+	padding: 10px 12px;
+	font-size: 14px;
+	line-height: 1.6;
+	cursor: pointer;
+}
+
+.share-page .share-picks label {
+	color: var(--share-ink);
+}
+
+.share-picks input {
+	flex-shrink: 0;
+	width: 20px;
+	height: 20px;
+	accent-color: var(--rose-strong);
+}
+
+.share-card.share-preview {
+	padding: 0;
+	border: 0;
+	background: transparent;
+	text-align: center;
+}
+
+.share-preview canvas {
+	display: block;
+	width: 100%;
+	max-width: 420px;
+	height: auto;
+	margin: 0 auto;
+	border-radius: 12px;
+}
+
+.share-hint {
+	margin: 8px 0;
+	color: var(--hint);
+	font-size: 13px;
+	line-height: 1.7;
+}
+
+.share-error {
+	color: var(--error);
+}
+
+.share-notice {
+	color: var(--ok);
+}
+
+.share-page a {
+	color: var(--rose-strong);
+}
+
+.share-empty a {
+	display: inline-flex;
+	align-items: center;
+	min-height: 44px;
+}
+
+.share-actions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 8px;
+	margin-top: 20px;
+}
+
+.share-page button {
+	min-height: 44px;
+	padding: 0 18px;
+	border: 1px solid var(--rose-strong);
+	border-radius: 999px;
+	background: var(--cream);
+	color: var(--rose-strong);
+	font: inherit;
+	cursor: pointer;
+}
+
+.share-page .share-primary {
+	background: var(--rose-strong);
+	color: var(--cream);
+	font-weight: 700;
+}
+
+.share-page button:disabled {
+	cursor: default;
+	opacity: 0.45;
+}
+
+.share-page a:focus-visible,
+.share-page button:focus-visible,
+.share-page input:focus-visible {
+	outline: 3px solid var(--rose-deep);
+	outline-offset: 2px;
+}

@@ -1,0 +1,268 @@
+/* 피부 일기·새 제품 테스트 (설계 2026-10-24 A·B). 색은 index.css :root 토큰만 쓴다 */
+.diary-page {
+	box-sizing: border-box;
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 16px;
+	color: var(--ink);
+	font-family: 'Malgun Gothic', 'Segoe UI', sans-serif;
+}
+
+.diary-page * {
+	box-sizing: border-box;
+}
+
+.diary-layout {
+	display: grid;
+	gap: 16px;
+}
+
+@media (min-width: 768px) {
+	.diary-page {
+		padding: 32px 24px;
+	}
+
+	.diary-layout {
+		grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+		align-items: start;
+	}
+}
+
+.diary-card {
+	margin: 0 0 16px;
+	padding: 16px;
+	border: 1px solid var(--petal);
+	border-radius: 16px;
+	background: var(--cream);
+}
+
+.diary-card h2 {
+	margin: 0 0 8px;
+	color: var(--rose-deep);
+	font-size: 18px;
+}
+
+.diary-card h3 {
+	margin: 16px 0 8px;
+	font-size: 15px;
+}
+
+.diary-page button,
+.diary-page select,
+.diary-page textarea {
+	font: inherit;
+}
+
+.diary-page button {
+	min-height: 44px;
+	padding: 0 14px;
+	border: 1px solid var(--petal);
+	border-radius: 999px;
+	background: var(--cream);
+	color: var(--ink);
+	cursor: pointer;
+}
+
+.diary-page button:disabled {
+	cursor: default;
+	opacity: 0.45;
+}
+
+.diary-page button:focus-visible,
+.diary-page select:focus-visible,
+.diary-page textarea:focus-visible {
+	outline: 3px solid var(--rose-deep);
+	outline-offset: 2px;
+}
+
+.diary-page button[aria-pressed='true'] {
+	border-color: var(--rose-strong);
+	background: var(--blush);
+	color: var(--rose-deep);
+	font-weight: 700;
+}
+
+.diary-page .diary-primary {
+	border-color: var(--rose-strong);
+	background: var(--rose-strong);
+	color: var(--cream);
+	font-weight: 700;
+}
+
+.diary-page .diary-link-button {
+	border-color: transparent;
+	background: transparent;
+	color: var(--rose-strong);
+	text-decoration: underline;
+}
+
+.diary-hint {
+	margin: 8px 0;
+	color: var(--hint);
+	font-size: 13px;
+}
+
+.diary-error {
+	color: var(--error);
+}
+
+.diary-notice {
+	color: var(--ok);
+}
+
+/* 달력 */
+.diary-month-head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 8px;
+}
+
+.diary-month-head h2 {
+	margin: 0;
+}
+
+.diary-month-head button {
+	width: 44px;
+	padding: 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.diary-row,
+.diary-days {
+	display: grid;
+	grid-template-columns: repeat(7, minmax(0, 1fr));
+	gap: 4px;
+}
+
+.diary-weekday {
+	padding: 4px 0;
+	text-align: center;
+	color: var(--hint);
+	font-size: 12px;
+}
+
+.diary-page .diary-day {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2px;
+	min-height: 48px;
+	padding: 0;
+	border-radius: 12px;
+	font-size: 14px;
+}
+
+.diary-page .diary-day.is-today {
+	border-color: var(--rose);
+	font-weight: 700;
+}
+
+.diary-day.is-blank {
+	min-height: 48px;
+}
+
+.diary-dot {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: var(--hint);
+}
+
+.is-GOOD .diary-dot {
+	background: var(--ok);
+}
+
+.is-OK .diary-dot {
+	background: var(--notice);
+}
+
+.is-BAD .diary-dot {
+	background: var(--rose-strong);
+}
+
+/* 새 제품 테스트 기간인 날: 칸 아래 짧은 띠 */
+.diary-test-mark {
+	display: inline-block;
+	width: 18px;
+	height: 4px;
+	border-radius: 2px;
+	background: var(--cabinet);
+}
+
+.diary-page .diary-day .diary-test-mark {
+	position: absolute;
+	bottom: 4px;
+}
+
+.diary-intro {
+	margin: 0 0 16px;
+	font-size: 15px;
+	line-height: 1.6;
+}
+
+.diary-intro a {
+	color: var(--rose-strong);
+}
+
+.diary-legend {
+	display: flex;
+	gap: 16px;
+	margin: 12px 0 0;
+	font-size: 13px;
+}
+
+.diary-legend-item {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+/* 기록 입력 */
+.diary-editor fieldset {
+	margin: 0 0 12px;
+	padding: 0;
+	border: 0;
+}
+
+.diary-editor legend,
+.diary-editor label {
+	display: block;
+	margin-bottom: 6px;
+	font-weight: 700;
+	font-size: 14px;
+}
+
+.diary-choices {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.diary-mood {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.diary-editor textarea {
+	width: 100%;
+	padding: 10px 12px;
+	border: 1px solid var(--petal);
+	border-radius: 12px;
+	background: var(--cream);
+	color: var(--ink);
+	resize: vertical;
+}
+
+.diary-editor-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-top: 12px;
+}
